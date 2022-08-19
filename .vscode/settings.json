@@ -1,0 +1,8 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "editor.tabSize": 2,
+    "volar.completion.preferredAttrNameCase": "kebab",
+    "volar.completion.preferredTagNameCase": "pascal",
+}
