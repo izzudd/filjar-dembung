@@ -14,12 +14,9 @@
     </Head>
     <NavBar />
     <LandingHero />
-    <div class="flex flex-col gap-4">
-      <h1>Hello World</h1>
-      <h2>Lorem ipsum</h2>
-      <h3>This is H3</h3>
-      <p>This is paragraph</p>
-    </div>
+    <LandingAbout class="mt-24" />
+    <LandingFacility class="mt-24" />
+    <LandingLocation class="mt-24" />
   </div>
 </template>
 
