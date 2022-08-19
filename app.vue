@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-screen flex items-center justify-center">
+  <div class="min-h-screen">
     <Head>
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link
@@ -12,6 +12,8 @@
         rel="stylesheet"
       />
     </Head>
+    <NavBar />
+    <LandingHero />
     <div class="flex flex-col gap-4">
       <h1>Hello World</h1>
       <h2>Lorem ipsum</h2>
@@ -23,7 +25,7 @@
 
 <style lang="postcss">
 html {
-  @apply font-body text-accent-black/80;
+  @apply font-body text-accent-black/80 tracking-widest;
 }
 
 h1,
