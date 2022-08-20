@@ -13,11 +13,7 @@
           <NuxtLink to="#">Testimoni</NuxtLink>
           <NuxtLink to="#">Artikel</NuxtLink>
         </nav>
-        <button
-          class="bg-primary hover:bg-[#42756E] text-accent-white px-4 py-2 ml-8"
-        >
-          Hubungi Kami
-        </button>
+        <ButtonAction class="primary ml-8"> Hubungi Kami </ButtonAction>
       </div>
     </header>
   </div>

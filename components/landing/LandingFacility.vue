@@ -29,6 +29,7 @@
           dilengkapi saung istirahat menjadikan tempat yang tepat untuk
           memanjakan mata.
         </p>
+        <ButtonAction class="secondary"> Lihat Artikel </ButtonAction>
       </div>
       <img
         src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
@@ -45,6 +46,7 @@
           pengalaman bercocok tanam dimulai dari bunga hingga tanaman sayur
           mayur.
         </p>
+        <ButtonAction class="secondary"> Lihat Artikel </ButtonAction>
       </div>
       <img
         src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
@@ -57,7 +59,11 @@
 
 <style lang="postcss" scoped>
 h3 {
-  @apply mb-4 text-3xl text-primary;
+  @apply mb-6 text-3xl text-primary;
+}
+
+p {
+  @apply mb-8;
 }
 
 .naked-card {
