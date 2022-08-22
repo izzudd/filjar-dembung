@@ -19,7 +19,7 @@ button {
   }
 
   &.secondary {
-    @apply bg-accent hover:bg-[#E9F0E7] text-accent-black px-12 font-semibold tracking-wider;
+    @apply bg-accent hover:bg-[#E9F0E7] text-accent-black px-12 font-semibold tracking-wider border hover:border-accent-black;
   }
 }
 </style>

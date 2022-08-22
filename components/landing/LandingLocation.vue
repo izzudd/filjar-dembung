@@ -12,7 +12,7 @@
         <div
           class="text-center font-semibold bg-accent border-2 border-accent-black py-6 px-2 mb-12"
         >
-          <p class="text-3xl">Rp5.000,-</p>
+          <p class="text-3xl font-semibold mb-2">Rp5.000,-</p>
           <p>Tiket masuk + Parkir</p>
         </div>
         <ButtonAction class="secondary">Lihat Lokasi</ButtonAction>

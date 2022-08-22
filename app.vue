@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen bg-accent-white">
     <Head>
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link
@@ -17,6 +17,8 @@
     <LandingAbout class="mt-24" />
     <LandingFacility class="mt-24" />
     <LandingLocation class="mt-24" />
+    <LandingTestimonials class="mt-24" />
+    <LandingNewInfo class="mt-24" />
   </div>
 </template>
 
