@@ -1,7 +1,7 @@
 <template>
   <SectionWrapper>
     <div class="bg-secondary flex items-center gap-16 p-16">
-      <div class="w-1/2">
+      <div class="flex-1">
         <h2 class="mb-2">WISATA EDUKASI</h2>
         <h3 class="mb-6">D'Embung Park Pandanmulyo</h3>
         <p class="text-justify">
@@ -12,14 +12,36 @@
           didapatkan.
         </p>
       </div>
-      <div class="w-1/2">
-        <!-- TODO: Replace with carrousel image -->
-        <img
-          src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
-          class="w-full object-cover"
-          alt="lorem"
-        />
-      </div>
+      <SliderWrapper class="flex-1">
+        <SliderItem>
+          <img
+            src="https://source.unsplash.com/random/1920x1080/?village,landscape"
+            class="w-full object-cover"
+            alt="lorem"
+          />
+        </SliderItem>
+        <SliderItem>
+          <img
+            src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
+            class="w-full object-cover"
+            alt="lorem"
+          />
+        </SliderItem>
+        <SliderItem>
+          <img
+            src="https://source.unsplash.com/random/1920x1080/?space,landscape"
+            class="w-full object-cover"
+            alt="lorem"
+          />
+        </SliderItem>
+        <SliderItem>
+          <img
+            src="https://source.unsplash.com/random/1920x1080/?wall,landscape"
+            class="w-full object-cover"
+            alt="lorem"
+          />
+        </SliderItem>
+      </SliderWrapper>
     </div>
   </SectionWrapper>
 </template>
