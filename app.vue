@@ -13,12 +13,7 @@
       />
     </Head>
     <NavBar />
-    <LandingHero />
-    <LandingAbout class="mt-24" />
-    <LandingFacility class="mt-24" />
-    <LandingLocation class="mt-24" />
-    <LandingTestimonials class="mt-24" />
-    <LandingNewInfo class="mt-24" />
+    <NuxtPage />
     <PageFooter />
   </div>
 </template>
