@@ -1,0 +1,26 @@
+<template>
+  <article class="flex items-center gap-8 px-8 py-6 bg-secondary">
+    <img
+      class="aspect-square w-1/3"
+      src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
+      alt="lorem"
+    />
+    <div>
+      <h3 class="mb-1">Budidaya Ikan Sidat Banyak Beri Warga Sekitar</h3>
+      <time class="text-sm">1 Januari 2022</time>
+      <p class="mt-4">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat."
+      </p>
+      <ButtonAction class="secondary mt-8 ml-auto block"
+        >Selengkapnya</ButtonAction
+      >
+    </div>
+  </article>
+</template>
+
+<script lang="ts" setup>
+// TODO: Implement props content rendering
+</script>

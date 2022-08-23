@@ -1,0 +1,47 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+<template>
+  <ContentWrapper>
+    <header class="text-center border-b border-primary pb-4 mb-4">
+      <h1 class="text-primary text-5xl">Artikel Edukasi</h1>
+      <p class="font-bold text-xl">D'Embung Park Pandanmulyo</p>
+    </header>
+    <div class="flex items-end justify-between border-b border-primary pb-4">
+      <p class="font-bold text-xl">Artikel Terbaru</p>
+      <div class="bg-slate-200 w-72 h-12"></div>
+    </div>
+    <article class="mx-auto w-4/5 my-12">
+      <img
+        class="w-full mb-8"
+        src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
+        alt="lorem"
+      />
+      <h3 class="mb-1">Budidaya Ikan Sidat Banyak Beri Warga Sekitar</h3>
+      <time class="text-sm">1 Januari 2022</time>
+      <p class="mt-4">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </p>
+      <ButtonAction class="secondary mt-8 ml-auto block"
+        >Selengkapnya</ButtonAction
+      >
+    </article>
+    <div class="border-b border-primary pb-4"></div>
+    <div class="mx-auto w-4/5 my-12 flex flex-col gap-8">
+      <PostCard />
+      <PostCard />
+      <PostCard />
+    </div>
+    <ButtonAction class="secondary mt-16 mx-auto block"
+      >Lebih Banyak</ButtonAction
+    >
+  </ContentWrapper>
+</template>
+
+<script lang="ts" setup>
+// TODO: Pull dynamic data from API
+</script>
