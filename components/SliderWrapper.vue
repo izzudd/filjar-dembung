@@ -1,9 +1,17 @@
 <template>
   <div class="relative">
-    <button class="-right-5 rotate" @click="changeView()">
+    <button
+      class="rotate z-10"
+      :class="buttonOutside ? '-right-5' : 'right-5'"
+      @click="changeView()"
+    >
       <img class="w-3" src="/icons/next.svg" alt="lanjut" />
     </button>
-    <button class="-left-5 rotate-180" @click="changeView(-1)">
+    <button
+      class="rotate-180 z-10"
+      :class="buttonOutside ? '-left-5' : 'left-5'"
+      @click="changeView(-1)"
+    >
       <img class="w-3" src="/icons/next.svg" alt="sebelumnya" />
     </button>
     <div
@@ -12,7 +20,10 @@
     >
       <slot />
     </div>
-    <div class="absolute w-full bottom-0 left-0 flex gap-2 justify-center pb-2">
+    <div
+      v-if="displayIndicator"
+      class="absolute w-full bottom-0 left-0 flex gap-2 justify-center pb-2"
+    >
       <span
         v-for="idx in slideCount"
         :key="idx"
@@ -24,6 +35,17 @@
 </template>
 
 <script setup lang="ts">
+withDefaults(
+  defineProps<{
+    displayIndicator?: boolean;
+    buttonOutside?: boolean;
+  }>(),
+  {
+    displayIndicator: true,
+    buttonOutside: true,
+  }
+);
+
 const slider = ref(null);
 const scrollDistance = 10;
 const showDuration = 3000;
