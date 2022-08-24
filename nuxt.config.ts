@@ -5,4 +5,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/tw.css'],
 
   modules: ['@nuxtjs/tailwindcss'],
+
+  runtimeConfig: {
+    siteState: process.env.NODE_ENV,
+  },
 });
