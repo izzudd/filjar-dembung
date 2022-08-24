@@ -13,7 +13,11 @@
           <img src="https://source.unsplash.com/random/?village" alt="lorem" />
         </div>
       </div>
-      <ButtonAction class="secondary mb-10 mx-auto">Selengkapnya</ButtonAction>
+      <div class="text-center mb-8">
+        <ButtonAction as-link class="secondary" to="/artikel/mock-post"
+          >Selengkapnya</ButtonAction
+        >
+      </div>
       <p class="font-semibold mb-4">atau kunjungi sosial media kami lainnya</p>
       <div class="flex gap-4 justify-center">
         <NuxtLink to="#"

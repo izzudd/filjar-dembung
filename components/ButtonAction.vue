@@ -6,13 +6,22 @@
 -->
 
 <template>
-  <button>
+  <NuxtLink v-if="asLink" class="button">
+    <slot />
+  </NuxtLink>
+  <button v-else class="button">
     <slot />
   </button>
 </template>
 
+<script lang="ts" setup>
+defineProps<{
+  asLink?: boolean;
+}>();
+</script>
+
 <style lang="postcss" scoped>
-button {
+.button {
   @apply px-4 py-2;
   &.primary {
     @apply bg-primary hover:bg-[#42756E] text-accent-white;

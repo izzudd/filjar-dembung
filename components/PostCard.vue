@@ -14,9 +14,11 @@
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat."
       </p>
-      <ButtonAction class="secondary mt-8 ml-auto block"
-        >Selengkapnya</ButtonAction
-      >
+      <div class="text-right mt-8">
+        <ButtonAction as-link class="secondary" to="/artikel/mock-post"
+          >Selengkapnya</ButtonAction
+        >
+      </div>
     </div>
   </article>
 </template>

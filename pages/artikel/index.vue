@@ -1,13 +1,21 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <ContentWrapper>
+    <NuxtLink v-show="searchQuery" to="/artikel"
+      ><img
+        class="rotate-180 w-7 p-2 bg-secondary mb-4"
+        src="/icons/next.svg"
+        alt="kembali"
+    /></NuxtLink>
     <header class="text-center border-b border-primary pb-4 mb-4">
       <h1 class="text-primary text-5xl">Artikel Edukasi</h1>
       <p class="font-bold text-xl">D'Embung Park Pandanmulyo</p>
     </header>
     <div class="flex items-end justify-between border-b border-primary pb-4">
-      <p class="font-bold text-xl">Artikel Terbaru</p>
-      <div class="bg-slate-200 w-72 h-12"></div>
+      <p class="font-bold text-xl">
+        {{ searchQuery ? `Hasil Pencarian ${searchQuery}` : 'Artikel Terbaru' }}
+      </p>
+      <SearchBar />
     </div>
     <article class="mx-auto w-4/5 my-12">
       <img
@@ -26,9 +34,11 @@
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum."
       </p>
-      <ButtonAction class="secondary mt-8 ml-auto block"
-        >Selengkapnya</ButtonAction
-      >
+      <div class="text-right mt-8">
+        <ButtonAction as-link class="secondary" to="/artikel/mock-post"
+          >Selengkapnya</ButtonAction
+        >
+      </div>
     </article>
     <div class="border-b border-primary pb-4"></div>
     <div class="mx-auto w-4/5 my-12 flex flex-col gap-8">
@@ -43,5 +53,10 @@
 </template>
 
 <script lang="ts" setup>
-// TODO: Pull dynamic data from API
+const route = useRoute();
+const searchQuery = ref('');
+watch(
+  () => route.query,
+  () => (searchQuery.value = route.query.s as string)
+);
 </script>

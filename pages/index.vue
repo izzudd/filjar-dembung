@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <main>
-    <LandingHero />
-    <LandingAbout class="mt-24" />
-    <LandingFacility class="mt-24" />
-    <LandingLocation class="mt-24" />
-    <LandingTestimonials class="mt-24" />
-    <LandingNewInfo class="mt-24" />
+    <LandingHero id="hero" />
+    <LandingAbout id="tentang" class="mt-24" />
+    <LandingFacility id="fasilitas" class="mt-24" />
+    <LandingLocation id="lokasi" class="mt-24" />
+    <LandingTestimonials id="testimoni" class="mt-24" />
+    <LandingNewInfo id="informasi" class="mt-24" />
   </main>
 </template>
