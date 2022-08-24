@@ -31,5 +31,5 @@ module.exports = {
   },
 
   // TODO: decide use typography fom plugin or manual
-  // plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography')],
 };
