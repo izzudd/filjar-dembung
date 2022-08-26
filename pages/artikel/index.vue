@@ -13,12 +13,18 @@
       </h1>
       <p class="font-bold text-xl">D'Embung Park Pandanmulyo</p>
     </header>
-    <div class="flex items-end justify-between border-b border-primary pb-4">
-      <p class="font-bold text-xl">
-        {{ searchQuery ? `Hasil Pencarian ${searchQuery}` : 'Artikel Terbaru' }}
+    <div class="flex items-end justify-end pb-4 gap-4">
+      <p
+        v-show="!searchQuery"
+        class="font-bold text-xl border-b border-primary flex-grow pb-2"
+      >
+        Artikel Terbaru
       </p>
-      <SearchBar />
+      <SearchBar class="mb-4" />
     </div>
+    <p v-show="searchQuery" class="font-bold text-xl">
+      Hasil Pencarian "{{ searchQuery }}"
+    </p>
     <article class="mx-auto w-4/5 my-12">
       <img
         class="w-full mb-8"
