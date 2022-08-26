@@ -8,7 +8,9 @@
         alt="kembali"
     /></NuxtLink>
     <header class="text-center border-b border-primary pb-4 mb-4">
-      <h1 class="text-primary text-5xl">Artikel Edukasi</h1>
+      <h1 class="text-primary text-5xl tracking-widest mb-1">
+        ARTIKEL EDUKASI
+      </h1>
       <p class="font-bold text-xl">D'Embung Park Pandanmulyo</p>
     </header>
     <div class="flex items-end justify-between border-b border-primary pb-4">

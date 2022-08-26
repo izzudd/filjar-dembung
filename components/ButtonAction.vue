@@ -28,7 +28,7 @@ defineProps<{
   }
 
   &.secondary {
-    @apply bg-accent hover:bg-[#E9F0E7] text-accent-black px-12 font-semibold tracking-wider border hover:border-accent-black;
+    @apply bg-accent hover:bg-[#E9F0E7] text-accent-black px-12 font-semibold tracking-wider border hover:border-[#9BB0A5];
   }
 }
 </style>

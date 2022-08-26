@@ -2,7 +2,7 @@
 <template>
   <main>
     <LandingHero id="hero" />
-    <LandingAbout id="tentang" class="mt-24" />
+    <LandingAbout id="tentang" class="mt-16" />
     <LandingFacility id="fasilitas" class="mt-24" />
     <LandingLocation id="lokasi" class="mt-24" />
     <LandingTestimonials id="testimoni" class="mt-24" />

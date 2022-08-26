@@ -1,7 +1,7 @@
 <template>
   <SectionWrapper>
     <h2 class="text-center mb-6">FASILITAS</h2>
-    <p class="text-center max-w-4xl mx-auto mb-24">
+    <p class="text-center max-w-4xl mx-auto mb-24 font-bold">
       Kami menyediakan fasilitas dan atraksi utama dalam konsep yang berbeda,
       memberikan pengalaman terbaik bagi setiap pengunjung.
     </p>

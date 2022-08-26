@@ -16,7 +16,15 @@
       </nav>
       <div class="w-2/5">
         <p class="font-bold mb-2">Alamat</p>
-        <div class="aspect-video w-full bg-slate-300"></div>
+        <div class="aspect-video w-full bg-slate-300">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.313404869151!2d112.6956098!3d-8.069481600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62762e7ca94ed%3A0x18355398663fc53!2sD&#39;Embung%20Park%20Pandanmulyo!5e0!3m2!1sen!2sid!4v1661345640442!5m2!1sen!2sid"
+            class="w-full h-full"
+            style="border: 0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
       <div>
         <p class="font-bold mb-2">Kontak</p>

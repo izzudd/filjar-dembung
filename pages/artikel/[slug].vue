@@ -8,7 +8,7 @@
         alt="kembali"
     /></NuxtLink>
     <div class="border-t border-primary pt-4 mb-12">
-      <div class="bg-slate-200 w-72 h-12 ml-auto"></div>
+      <SearchBar />
     </div>
     <article class="mx-auto max-w-5xl">
       <h1 class="mb-2 leading-snug">
