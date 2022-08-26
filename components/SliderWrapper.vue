@@ -47,23 +47,24 @@ withDefaults(
 );
 
 const slider = ref(null);
-const scrollDistance = 10;
 const showDuration = 3000;
 const slideCount = ref(0);
 const slideState = ref(0);
 
 const triggerScroll = (direction = 1) => {
   slideState.value += direction;
+  const sliderWidth = slider.value.clientWidth;
 
   if (slideState.value >= slideCount.value) {
     slider.value.scroll(0, 0);
     slideState.value = 0;
   } else if (slideState.value < 0) {
-    const sliderWidth = slider.value.clientWidth * slideCount.value;
-    window.console.log(sliderWidth);
-    slider.value.scroll(sliderWidth, 0);
+    const contentWidth = sliderWidth * slideCount.value;
+    slider.value.scroll(contentWidth, 0);
     slideState.value = slideCount.value - 1;
-  } else slider.value.scrollBy(scrollDistance * direction, 0);
+  } else {
+    slider.value.scrollBy(sliderWidth, 0);
+  }
 };
 
 const changeView = (direction = 1) => {
@@ -87,8 +88,8 @@ const stopAutoSlide = (timeout = 0) => {
 };
 
 onMounted(() => {
-  startAutoSlide();
   slideCount.value = slider.value.childElementCount;
+  startAutoSlide();
 });
 onUnmounted(() => stopAutoSlide());
 </script>

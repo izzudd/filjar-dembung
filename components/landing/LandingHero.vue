@@ -1,5 +1,9 @@
 <template>
-  <SectionWrapper class="cover">
+  <SectionWrapper class="relative">
+    <NuxtImg
+      class="absolute top-0 left-0 w-full h-full object-cover"
+      src="/img/landscape/2.jpg"
+    />
     <div class="relative">
       <div class="min-h-screen flex items-center justify-center mt-12">
         <div class="text-center max-w-3xl">
@@ -31,12 +35,6 @@ const overlay = ref(false);
 </script>
 
 <style lang="postcss" scoped>
-.cover {
-  @apply bg-cover;
-  /* TODO: Use fixed image for prod */
-  background-image: url(https://source.unsplash.com/random);
-}
-
 h1,
 p {
   @apply text-accent-white;

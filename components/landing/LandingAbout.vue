@@ -12,31 +12,10 @@
           didapatkan.
         </p>
       </div>
-      <SliderWrapper class="flex-1">
-        <SliderItem>
-          <img
-            src="https://source.unsplash.com/random/1920x1080/?village,landscape"
-            class="w-full object-cover"
-            alt="lorem"
-          />
-        </SliderItem>
-        <SliderItem>
-          <img
-            src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
-            class="w-full object-cover"
-            alt="lorem"
-          />
-        </SliderItem>
-        <SliderItem>
-          <img
-            src="https://source.unsplash.com/random/1920x1080/?space,landscape"
-            class="w-full object-cover"
-            alt="lorem"
-          />
-        </SliderItem>
-        <SliderItem>
-          <img
-            src="https://source.unsplash.com/random/1920x1080/?wall,landscape"
+      <SliderWrapper v-once class="flex-1">
+        <SliderItem v-for="idx in 5" :key="idx">
+          <NuxtImg
+            :src="`img/landscape/${idx}.jpg`"
             class="w-full object-cover"
             alt="lorem"
           />

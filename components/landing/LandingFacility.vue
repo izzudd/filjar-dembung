@@ -14,8 +14,8 @@
           keluarga, dilengkapi pemandangan hijau tumbuhan yang mengelilingi.
         </p>
       </div>
-      <img
-        src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
+      <NuxtImg
+        src="img/landscape/5.jpg"
         class="w-1/3 object-cover"
         alt="lorem"
       />
@@ -35,8 +35,8 @@
           >
         </div>
       </div>
-      <img
-        src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
+      <NuxtImg
+        src="img/landscape/3.jpg"
         class="w-1/3 object-cover"
         alt="lorem"
       />
@@ -54,8 +54,8 @@
           >Lihat Artikel</ButtonAction
         >
       </div>
-      <img
-        src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
+      <NuxtImg
+        src="img/landscape/alt/4.jpg"
         class="w-1/3 object-cover"
         alt="lorem"
       />
