@@ -14,8 +14,8 @@
       </div>
       <SliderWrapper v-once class="flex-1">
         <SliderItem v-for="idx in 5" :key="idx">
-          <NuxtImg
-            :src="`img/landscape/${idx}.jpg`"
+          <img
+            :src="`/img/landscape/${idx}.jpg`"
             class="w-full object-cover"
             alt="lorem"
           />

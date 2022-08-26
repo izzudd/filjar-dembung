@@ -14,11 +14,7 @@
           keluarga, dilengkapi pemandangan hijau tumbuhan yang mengelilingi.
         </p>
       </div>
-      <NuxtImg
-        src="img/landscape/5.jpg"
-        class="w-1/3 object-cover"
-        alt="lorem"
-      />
+      <img src="/img/landscape/5.jpg" class="w-1/3 object-cover" alt="lorem" />
     </div>
 
     <div class="naked-card text-right">
@@ -35,11 +31,7 @@
           >
         </div>
       </div>
-      <NuxtImg
-        src="img/landscape/3.jpg"
-        class="w-1/3 object-cover"
-        alt="lorem"
-      />
+      <img src="/img/landscape/3.jpg" class="w-1/3 object-cover" alt="lorem" />
     </div>
 
     <div class="naked-card flex-row-reverse">
@@ -54,8 +46,8 @@
           >Lihat Artikel</ButtonAction
         >
       </div>
-      <NuxtImg
-        src="img/landscape/alt/4.jpg"
+      <img
+        src="/img/landscape/alt/4.jpg"
         class="w-1/3 object-cover"
         alt="lorem"
       />

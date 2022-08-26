@@ -1,6 +1,6 @@
 <template>
   <SectionWrapper class="relative">
-    <NuxtImg
+    <img
       class="absolute top-0 left-0 w-full h-full object-cover"
       src="/img/landscape/2.jpg"
     />

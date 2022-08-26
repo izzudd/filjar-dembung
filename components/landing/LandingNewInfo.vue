@@ -8,7 +8,7 @@
           :key="image"
           class="aspect-square w-full bg-slate-200"
         >
-          <NuxtImg :src="image" alt="lorem" />
+          <img :src="image" alt="lorem" />
         </div>
       </div>
       <div class="text-center mb-8">

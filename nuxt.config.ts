@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt';
 export default defineNuxtConfig({
   css: ['~/assets/css/tw.css'],
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image-edge'],
+  modules: ['@nuxtjs/tailwindcss'],
 
   runtimeConfig: {
     siteState: process.env.NODE_ENV,
