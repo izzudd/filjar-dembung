@@ -1,7 +1,9 @@
 <template>
-  <article class="flex items-center gap-8 px-8 py-6 bg-secondary">
+  <article
+    class="flex flex-col lg:flex-row items-center gap-8 px-8 py-6 bg-secondary"
+  >
     <img
-      class="aspect-square w-1/3"
+      class="aspect-square lg:w-1/3"
       src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
       alt="lorem"
     />

@@ -7,25 +7,25 @@
         src="/icons/next.svg"
         alt="kembali"
     /></NuxtLink>
-    <header class="text-center border-b border-primary pb-4 mb-4">
-      <h1 class="text-primary text-5xl tracking-widest mb-1">
+    <header class="text-center lg:border-b border-primary pb-12 lg:pb-4 mb-4">
+      <h1 class="text-primary text-3xl lg:text-5xl tracking-widest mb-1">
         ARTIKEL EDUKASI
       </h1>
-      <p class="font-bold text-xl">D'Embung Park Pandanmulyo</p>
+      <p class="font-bold lg:text-xl">D'Embung Park Pandanmulyo</p>
     </header>
     <div class="flex items-end justify-end pb-4 gap-4">
       <p
         v-show="!searchQuery"
-        class="font-bold text-xl border-b border-primary flex-grow pb-2"
+        class="font-bold lg:text-xl border-b border-primary flex-grow pb-2"
       >
         Artikel Terbaru
       </p>
-      <SearchBar class="mb-4" />
+      <SearchBar class="hidden lg:flex mb-4" />
     </div>
     <p v-show="searchQuery" class="font-bold text-xl">
       Hasil Pencarian "{{ searchQuery }}"
     </p>
-    <article class="mx-auto w-4/5 my-12">
+    <article class="mx-auto md:w-4/5 my-12">
       <img
         class="w-full mb-8"
         src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
@@ -49,7 +49,7 @@
       </div>
     </article>
     <div class="border-b border-primary pb-4"></div>
-    <div class="mx-auto w-4/5 my-12 flex flex-col gap-8">
+    <div class="mx-auto md:w-4/5 my-12 flex flex-col gap-8">
       <PostCard />
       <PostCard />
       <PostCard />

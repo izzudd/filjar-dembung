@@ -20,17 +20,7 @@
       <div class="prose max-w-none" v-html="post.body"></div>
       <div class="mt-12 flex items-center justify-between">
         <span class="text-sm block">Tags: Budidaya Ikan, Cocok Tanam</span>
-        <div class="flex gap-4">
-          <NuxtLink to="#"
-            ><img src="/icons/instagram.svg" alt="instagram"
-          /></NuxtLink>
-          <NuxtLink to="#"
-            ><img src="/icons/youtube.svg" alt="youtube"
-          /></NuxtLink>
-          <NuxtLink to="#"
-            ><img src="/icons/facebook.svg" alt="facebook"
-          /></NuxtLink>
-        </div>
+        <SocialIcons class="flex gap-4" green />
       </div>
     </article>
     <h3 class="font-bold text-xl border-b border-primary mt-24 pb-2">

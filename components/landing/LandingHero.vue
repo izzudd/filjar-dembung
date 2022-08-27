@@ -8,11 +8,15 @@
       <div class="min-h-screen flex items-center justify-center mt-12">
         <div class="text-center max-w-3xl">
           <h1 class="mb-4">D'EMBUNG PARK PANDANMULYO</h1>
-          <p class="text-xl">Tempat Wisata Terbaik, Untuk Keluarga Tercinta</p>
-          <button @click="overlay = true">
-            <!-- TODO: Implement onclick event -->
-            <IconPlay class="fill-accent-white hover:fill-[#D6D8CE] mt-6" />
+          <p class="text-xl mb-12">
+            Tempat Wisata Terbaik, Untuk Keluarga Tercinta
+          </p>
+          <button class="hidden lg:inline" @click="overlay = true">
+            <IconPlay class="fill-accent-white hover:fill-[#D6D8CE]" />
           </button>
+          <ButtonAction as-link class="lg:hidden secondary"
+            >Selengkapnya</ButtonAction
+          >
         </div>
       </div>
       <div

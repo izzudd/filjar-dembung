@@ -2,11 +2,11 @@
   <SectionWrapper class="bg-secondary">
     <div class="py-24 text-center">
       <h2 class="mb-16">INFORMASI TERBARU</h2>
-      <div class="flex gap-6 mb-12">
+      <div class="flex gap-6 mb-12 overflow-x-auto lg:overflow-hidden">
         <div
           v-for="image in images"
           :key="image"
-          class="aspect-square w-full bg-slate-200"
+          class="aspect-square w-4/5 bg-slate-200 flex-shrink-0 lg:flex-shrink"
         >
           <img :src="image" alt="lorem" />
         </div>
@@ -17,17 +17,7 @@
         >
       </div>
       <p class="font-semibold mb-4">atau kunjungi sosial media kami lainnya</p>
-      <div class="flex gap-4 justify-center">
-        <NuxtLink to="#"
-          ><img src="/icons/instagram.svg" alt="instagram"
-        /></NuxtLink>
-        <NuxtLink to="#"
-          ><img src="/icons/youtube.svg" alt="youtube"
-        /></NuxtLink>
-        <NuxtLink to="#"
-          ><img src="/icons/facebook.svg" alt="facebook"
-        /></NuxtLink>
-      </div>
+      <SocialIcons green class="flex gap-4 h-8 justify-center" />
     </div>
   </SectionWrapper>
 </template>

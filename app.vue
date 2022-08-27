@@ -29,14 +29,14 @@ h2 {
 }
 
 h1 {
-  @apply text-6xl text-accent-black;
+  @apply text-4xl lg:text-6xl text-accent-black;
 }
 
 h2 {
-  @apply text-5xl text-primary;
+  @apply text-3xl lg:text-5xl text-primary;
 }
 
 h3 {
-  @apply text-xl font-semibold;
+  @apply lg:text-xl font-semibold;
 }
 </style>
