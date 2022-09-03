@@ -7,9 +7,7 @@
         src="/icons/next.svg"
         alt="kembali"
     /></NuxtLink>
-    <div class="border-t border-primary pt-4 mb-12 flex justify-end">
-      <SearchBar />
-    </div>
+    <div class="border-t border-primary pt-4 mb-12 flex justify-end"></div>
     <article class="mx-auto max-w-5xl">
       <h1 class="mb-2 leading-snug">
         {{ post.title }}

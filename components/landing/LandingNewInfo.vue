@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="text-center mb-8">
-        <ButtonAction as-link class="secondary" to="/artikel/mock-post"
+        <ButtonAction as-link class="secondary" to="#"
           >Selengkapnya</ButtonAction
         >
       </div>

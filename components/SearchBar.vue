@@ -4,7 +4,7 @@
       v-model="query"
       type="text"
       placeholder="Cari sesuatu?"
-      class="flex-shrink flex-grow bg-transparent mr-2"
+      class="flex-grow bg-transparent mr-2"
       @keydown.self.enter="
         navigateTo({
           path: '/artikel',
@@ -15,6 +15,7 @@
       "
     />
     <NuxtLink
+      class="w-6"
       :to="{
         path: '/artikel',
         query: {

@@ -21,7 +21,7 @@
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <h3 class="mb-4">Buka Setiap Hari Pukul 08.00 - 16.00 WIB</h3>
+        <h3 class="mb-4 font-bold">Buka Setiap Hari Pukul 08.00 - 16.00 WIB</h3>
         <div
           class="text-center font-semibold bg-accent border-1 border-[#9BB0A5] py-6 px-2 mb-12"
         >

@@ -1,7 +1,7 @@
 <template>
   <SectionWrapper>
     <div
-      class="min-h-screen lg:px-12 flex flex-col items-center justify-center"
+      class="my-32 lg:my-0 lg:min-h-screen lg:px-12 flex flex-col items-center justify-center"
     >
       <h2 class="text-center mb-16">TESTIMONI</h2>
       <SliderWrapper

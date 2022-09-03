@@ -7,22 +7,19 @@
         src="/icons/next.svg"
         alt="kembali"
     /></NuxtLink>
-    <header class="text-center lg:border-b border-primary pb-12 lg:pb-4 mb-4">
+    <header class="text-center lg:border-b border-primary pb-12 lg:pb-4 mb-6">
       <h1 class="text-primary text-3xl lg:text-5xl tracking-widest mb-1">
         ARTIKEL EDUKASI
       </h1>
       <p class="font-bold lg:text-xl">D'Embung Park Pandanmulyo</p>
     </header>
-    <div class="flex items-end justify-end pb-4 gap-4">
-      <p
-        v-show="!searchQuery"
-        class="font-bold lg:text-xl border-b border-primary flex-grow pb-2"
-      >
-        Artikel Terbaru
-      </p>
-      <SearchBar class="hidden lg:flex mb-4" />
-    </div>
-    <p v-show="searchQuery" class="font-bold text-xl">
+    <p
+      v-show="!searchQuery"
+      class="font-bold lg:text-xl border-b border-primary flex-grow pb-2"
+    >
+      Artikel Terbaru
+    </p>
+    <p v-show="searchQuery" class="font-bold text-xl mt-16">
       Hasil Pencarian "{{ searchQuery }}"
     </p>
     <article class="mx-auto md:w-4/5 my-12">
@@ -62,7 +59,7 @@
 
 <script lang="ts" setup>
 const route = useRoute();
-const searchQuery = ref('');
+const searchQuery = ref(route.query?.s || '');
 watch(
   () => route.query,
   () => (searchQuery.value = route.query.s as string)
