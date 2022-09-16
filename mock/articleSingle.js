@@ -1,10 +1,13 @@
+const { faker } = require('@faker-js/faker');
+
 module.exports = (id) => ({
   id,
   slug: 'content-mock-' + id,
-  title: 'Cara Mudah Budidaya Ikan Nila Agar Cepat Panen',
-  image: 'https://source.unsplash.com/random/1920x1080/?wallpaper,landscape',
-  createdAt: 'August 23, 2022 10:58 AM',
-  updatedAt: 'August 23, 2022 11:03 AM',
+  title: faker.lorem.sentence(),
+  image: faker.image.nature(1920, 1080),
+  createdAt: faker.date.past(),
+  updatedAt: faker.date.future(),
+  excerpt: faker.lorem.sentences(),
   body: content,
 });
 

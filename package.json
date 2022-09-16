@@ -5,7 +5,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "mock": "json-server mock/mocker.js --routes mock/routes.json"
+    "mock": "json-server mock/mocker.js --routes mock/routes.json --port 3001"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.2",
@@ -19,6 +19,7 @@
     "unified": "^10.1.2"
   },
   "optionalDependencies": {
+    "@faker-js/faker": "^7.5.0",
     "@typescript-eslint/parser": "^5.34.0",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
