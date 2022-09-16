@@ -8,5 +8,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     siteState: process.env.NODE_ENV,
+    apiEndpoint: '',
   },
 });

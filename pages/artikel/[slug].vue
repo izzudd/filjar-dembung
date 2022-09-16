@@ -13,7 +13,7 @@
         {{ post.title }}
       </h1>
       <time>{{ post.createdAt }}</time>
-      <img class="w-full my-8" :src="post.cover" alt="lorem" />
+      <img class="w-full my-8" :src="post.image" alt="lorem" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="prose max-w-none" v-html="post.body"></div>
       <div class="mt-12 flex items-center justify-between">
@@ -36,7 +36,27 @@
 </template>
 
 <script lang="ts" setup>
-import getContent from '~~/composables/getContent';
+import type { PostData } from '~~/types/content';
+import rehypeSanitize from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
 
-const post = await getContent();
+const slug = useRoute().params['slug'] as string;
+
+const { data } = await useFetch<{ data: PostData }>(`/article/${slug}`, {
+  baseURL: useRuntimeConfig().apiEndpoint,
+});
+
+const post = data.value.data;
+
+post.body = String(
+  await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypeSanitize)
+    .use(rehypeStringify)
+    .process(post.body)
+);
 </script>

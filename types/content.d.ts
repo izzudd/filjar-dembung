@@ -6,7 +6,7 @@ export interface PostStrip {
   id: number;
   slug: string;
   title: string;
-  cover: Url;
+  image: Url;
   excerpt?: string;
   createdAt: DateTime;
   updatedAt: DateTime;

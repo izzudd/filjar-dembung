@@ -25,7 +25,7 @@ function generateArticles(count) {
 function generateArticleWrapped(count) {
   let articles = [];
   for (let i = 0; i < count; i++) {
-    articles.push({ data: generateArticle(i + 1) });
+    articles.push({ data: generateArticle(i + 1), id: i + 1 });
   }
   return articles;
 }

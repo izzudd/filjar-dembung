@@ -11,7 +11,7 @@ async function fetchData(): Promise<PostData> {
     id: 1,
     slug: 'content-mock',
     title: 'Cara Mudah Budidaya Ikan Nila Agar Cepat Panen',
-    cover: 'https://source.unsplash.com/random/1920x1080/?wallpaper,landscape',
+    image: 'https://source.unsplash.com/random/1920x1080/?wallpaper,landscape',
     createdAt: 'August 23, 2022 10:58 AM',
     updatedAt: 'August 23, 2022 11:03 AM',
     body: await parseBody(mockBody),
