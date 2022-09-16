@@ -1,0 +1,3 @@
+{
+  "/article/:slug": "/articleSingle?data.slug=:slug"
+}

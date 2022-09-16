@@ -4,7 +4,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "mock": "json-server mock/mocker.js --routes mock/routes.json"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.2",
