@@ -5,7 +5,7 @@ module.exports = (id) => ({
   slug: 'content-mock-' + id,
   title: faker.lorem.sentence(),
   image: faker.image.nature(1920, 1080),
-  createdAt: faker.date.past(),
+  createdAt: faker.date.recent(),
   updatedAt: faker.date.future(),
   excerpt: faker.lorem.sentences(),
   body: content,

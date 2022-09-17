@@ -25,9 +25,7 @@
       Atikel Lainnya
     </h3>
     <div class="mx-auto w-4/5 my-12 flex flex-col gap-8">
-      <PostCard />
-      <PostCard />
-      <PostCard />
+      <PostCard v-for="p in posts.data" :key="p.slug" :post="p" />
     </div>
     <ButtonAction class="secondary mt-16 mx-auto block"
       >Lebih Banyak</ButtonAction
@@ -36,27 +34,52 @@
 </template>
 
 <script lang="ts" setup>
-import type { PostData } from '~~/types/content';
+import type { PostData, PostStrip } from '~~/types/content';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
 
-const slug = useRoute().params['slug'] as string;
+const slug = useRoute().params.slug as string;
 
-const { data } = await useFetch<{ data: PostData }>(`/article/${slug}`, {
-  baseURL: useRuntimeConfig().apiEndpoint,
+const { data, refresh } = await useFetch<{ data: PostData }>(
+  `/article/${slug}`,
+  {
+    baseURL: useRuntimeConfig().apiEndpoint,
+  }
+);
+
+const formatDate = (date) =>
+  new Date(date).toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+
+async function formatResponse(data: PostData) {
+  data.body = String(
+    await unified()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeSanitize)
+      .use(rehypeStringify)
+      .process(data.body)
+  );
+  data.createdAt = formatDate(data.createdAt);
+  data.updatedAt = formatDate(data.updatedAt);
+
+  return data;
+}
+
+let post = ref(await formatResponse(data.value.data));
+
+onMounted(async () => {
+  await refresh();
+  post.value = await formatResponse(data.value.data);
 });
 
-const post = data.value.data;
-
-post.body = String(
-  await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypeSanitize)
-    .use(rehypeStringify)
-    .process(post.body)
-);
+const { data: posts } = await useFetch<{ data: PostStrip[] }>(`/article`, {
+  baseURL: useRuntimeConfig().apiEndpoint,
+});
 </script>

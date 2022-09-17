@@ -2,22 +2,15 @@
   <article
     class="flex flex-col lg:flex-row items-center gap-8 px-8 py-6 bg-secondary"
   >
-    <img
-      class="aspect-square lg:w-1/3"
-      src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
-      alt="lorem"
-    />
-    <div>
-      <h3 class="mb-1">Budidaya Ikan Sidat Banyak Beri Warga Sekitar</h3>
-      <time class="text-sm">1 Januari 2022</time>
+    <img class="aspect-square lg:w-1/3" :src="post.image" :alt="post.title" />
+    <div class="w-full">
+      <h3 class="mb-1">{{ post.title }}</h3>
+      <time class="text-sm">{{ post.createdAt }}</time>
       <p class="mt-4 excerpt">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat."
+        {{ post.excerpt }}
       </p>
       <div class="text-right mt-8">
-        <ButtonAction as-link class="secondary" to="/artikel/mock-post"
+        <ButtonAction as-link class="secondary" :to="`/artikel/${post.id}`"
           >Selengkapnya</ButtonAction
         >
       </div>
@@ -26,7 +19,23 @@
 </template>
 
 <script lang="ts" setup>
-// TODO: Implement props content rendering
+import { PostStrip } from '~~/types/content';
+
+const props = defineProps<{
+  post: PostStrip;
+}>();
+
+const formatDate = (date) =>
+  new Date(date).toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+
+// eslint-disable-next-line vue/no-mutating-props
+props.post.createdAt = formatDate(props.post.createdAt);
+// eslint-disable-next-line vue/no-mutating-props
+props.post.updatedAt = formatDate(props.post.updatedAt);
 </script>
 
 <style lang="postcss" scoped>
