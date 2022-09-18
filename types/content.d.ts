@@ -2,14 +2,16 @@ type DateTime = string | Date;
 type PostContent = string | any;
 type Url = string;
 
-export interface PostStrip {
-  id: number;
+interface CommonData {
+  ID: number;
+  CreatedAt: DateTime;
+  UpdatedAt: DateTime;
+}
+export interface PostStrip extends CommonData {
   slug: string;
   title: string;
   image: Url;
   excerpt?: string;
-  createdAt: DateTime;
-  updatedAt: DateTime;
 }
 
 export interface PostData extends PostStrip {
@@ -17,20 +19,23 @@ export interface PostData extends PostStrip {
   relatedPost?: PostStrip[];
 }
 
-export interface Posts {
-  count: number;
-  posts: PostStrip[];
+export interface Operational {
+  price: number;
+  day: string;
+  hour: string;
 }
 
-export interface SearchResult {
-  query: string;
-  count: number;
-  posts: PostStrip[];
+export interface Testimonial {
+  identitas: string;
+  testimoni: string;
 }
 
-export interface CommonProps {
-  ticketPrice: number;
-  openAt: string;
-  closeAt: string;
-  operationalDay: string[] | string;
+interface APIResponse<T, A = void> extends A {
+  data: T;
+  success: boolean;
+  statusCode: number;
+  message: string;
+  error?: string;
 }
+
+// export type APIResponse<T, A> = APIResponse<T> | A;

@@ -21,11 +21,13 @@
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <h3 class="mb-4 font-bold">Buka Setiap Hari Pukul 08.00 - 16.00 WIB</h3>
+        <h3 class="mb-4 font-bold">
+          Buka {{ operational.day }} Pukul {{ operational.hour }} WIB
+        </h3>
         <div
           class="text-center font-semibold bg-accent border-1 border-[#9BB0A5] py-6 px-2 mb-12"
         >
-          <p class="text-3xl font-semibold mb-2">Rp5.000,-</p>
+          <p class="text-3xl font-semibold mb-2">{{ operational.price }}</p>
           <p>Tiket masuk + Parkir</p>
         </div>
         <ButtonAction
@@ -48,3 +50,13 @@
     </div>
   </SectionWrapper>
 </template>
+
+<script lang="ts" setup>
+import { APIResponse, Operational } from '~~/types/content';
+
+const { data } = await useFetch<APIResponse<Operational>>(`/operasional`, {
+  baseURL: useRuntimeConfig().public.apiEndpoint,
+});
+
+const operational = data.value.data;
+</script>

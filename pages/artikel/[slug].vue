@@ -12,7 +12,7 @@
       <h1 class="mb-2 leading-snug">
         {{ post.title }}
       </h1>
-      <time>{{ post.createdAt }}</time>
+      <time>{{ post.CreatedAt }}</time>
       <img class="w-full my-8" :src="post.image" alt="lorem" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="prose max-w-none" v-html="post.body"></div>
@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PostData, PostStrip } from '~~/types/content';
+import type { APIResponse, PostData, PostStrip } from '~~/types/content';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
 import remarkParse from 'remark-parse';
@@ -43,10 +43,10 @@ import { unified } from 'unified';
 
 const slug = useRoute().params.slug as string;
 
-const { data, refresh } = await useFetch<{ data: PostData }>(
+const { data, refresh } = await useFetch<APIResponse<PostData>>(
   `/article/${slug}`,
   {
-    baseURL: useRuntimeConfig().apiEndpoint,
+    baseURL: useRuntimeConfig().public.apiEndpoint,
   }
 );
 
@@ -66,8 +66,8 @@ async function formatResponse(data: PostData) {
       .use(rehypeStringify)
       .process(data.body)
   );
-  data.createdAt = formatDate(data.createdAt);
-  data.updatedAt = formatDate(data.updatedAt);
+  data.CreatedAt = formatDate(data.CreatedAt);
+  data.UpdatedAt = formatDate(data.UpdatedAt);
 
   return data;
 }
@@ -79,7 +79,7 @@ onMounted(async () => {
   post.value = await formatResponse(data.value.data);
 });
 
-const { data: posts } = await useFetch<{ data: PostStrip[] }>(`/article`, {
-  baseURL: useRuntimeConfig().apiEndpoint,
+const { data: posts } = await useFetch<APIResponse<PostStrip[]>>(`/articles`, {
+  baseURL: useRuntimeConfig().public.apiEndpoint,
 });
 </script>

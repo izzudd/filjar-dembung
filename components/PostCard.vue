@@ -5,12 +5,12 @@
     <img class="aspect-square lg:w-1/3" :src="post.image" :alt="post.title" />
     <div class="w-full">
       <h3 class="mb-1">{{ post.title }}</h3>
-      <time class="text-sm">{{ post.createdAt }}</time>
+      <time class="text-sm">{{ post.CreatedAt }}</time>
       <p class="mt-4 excerpt">
         {{ post.excerpt }}
       </p>
       <div class="text-right mt-8">
-        <ButtonAction as-link class="secondary" :to="`/artikel/${post.id}`"
+        <ButtonAction as-link class="secondary" :to="`/artikel/${post.slug}`"
           >Selengkapnya</ButtonAction
         >
       </div>
@@ -33,9 +33,9 @@ const formatDate = (date) =>
   });
 
 // eslint-disable-next-line vue/no-mutating-props
-props.post.createdAt = formatDate(props.post.createdAt);
+props.post.CreatedAt = formatDate(props.post.CreatedAt);
 // eslint-disable-next-line vue/no-mutating-props
-props.post.updatedAt = formatDate(props.post.updatedAt);
+props.post.UpdatedAt = formatDate(props.post.UpdatedAt);
 </script>
 
 <style lang="postcss" scoped>

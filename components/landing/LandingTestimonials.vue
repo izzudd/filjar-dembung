@@ -9,50 +9,29 @@
         :display-indicator="false"
         class="quotebox w-full"
       >
-        <SliderItem>
+        <SliderItem
+          v-for="testimonial in testimonials"
+          :key="testimonial.identitas"
+        >
           <div class="slider-item">
-            <p>
-              "Sebuah terobosan dan inovasi yang hebat ditunjukkan Desa
-              Pandanmulyo dengan telah membangun Wisata Edukasi D'Embung Park
-              ini.."
-            </p>
-            <h3>Abah Sanusi, Bupati Malang</h3>
-          </div>
-        </SliderItem>
-        <SliderItem>
-          <div class="slider-item">
-            <p>
-              "Sebuah terobosan dan inovasi yang hebat ditunjukkan Desa
-              Pandanmulyo dengan telah membangun Wisata Edukasi D'Embung Park
-              ini.."
-            </p>
-            <h3>Abah Sanusi, Bupati Malang</h3>
-          </div>
-        </SliderItem>
-        <SliderItem>
-          <div class="slider-item">
-            <p>
-              "Sebuah terobosan dan inovasi yang hebat ditunjukkan Desa
-              Pandanmulyo dengan telah membangun Wisata Edukasi D'Embung Park
-              ini.."
-            </p>
-            <h3>Abah Sanusi, Bupati Malang</h3>
-          </div>
-        </SliderItem>
-        <SliderItem>
-          <div class="slider-item">
-            <p>
-              "Sebuah terobosan dan inovasi yang hebat ditunjukkan Desa
-              Pandanmulyo dengan telah membangun Wisata Edukasi D'Embung Park
-              ini.."
-            </p>
-            <h3>Abah Sanusi, Bupati Malang</h3>
+            <p>"{{ testimonial.testimoni }}"</p>
+            <h3>{{ testimonial.identitas }}</h3>
           </div>
         </SliderItem>
       </SliderWrapper>
     </div>
   </SectionWrapper>
 </template>
+
+<script lang="ts" setup>
+import { Testimonial } from '~~/types/content';
+
+const { data } = await useFetch<{ data: Testimonial[] }>(`/testimoni`, {
+  baseURL: useRuntimeConfig().public.apiEndpoint,
+});
+
+const testimonials = data.value.data;
+</script>
 
 <style lang="postcss" scoped>
 .quotebox::after {

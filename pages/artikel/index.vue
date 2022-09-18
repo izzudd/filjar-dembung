@@ -47,9 +47,7 @@
     </article>
     <div class="border-b border-primary pb-4"></div>
     <div class="mx-auto md:w-4/5 my-12 flex flex-col gap-8">
-      <PostCard />
-      <PostCard />
-      <PostCard />
+      <PostCard v-for="p in posts.data" :key="p.slug" :post="p" />
     </div>
     <ButtonAction class="secondary mt-16 mx-auto block"
       >Lebih Banyak</ButtonAction
@@ -58,10 +56,25 @@
 </template>
 
 <script lang="ts" setup>
+import { APIResponse, PostStrip } from '~~/types/content';
+
 const route = useRoute();
-const searchQuery = ref(route.query?.s || '');
+const searchQuery = ref(route.query?.q || '');
+
+const { data: posts, refresh } = await useFetch<
+  APIResponse<PostStrip[], { query: string }>
+>(searchQuery.value ? '/article' : '/articles', {
+  baseURL: useRuntimeConfig().public.apiEndpoint,
+  params: {
+    q: searchQuery.value,
+  },
+});
+
 watch(
   () => route.query,
-  () => (searchQuery.value = route.query.s as string)
+  async () => {
+    searchQuery.value = route.query.s as string;
+    await refresh();
+  }
 );
 </script>

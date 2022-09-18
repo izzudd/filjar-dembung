@@ -9,7 +9,7 @@
         navigateTo({
           path: '/artikel',
           query: {
-            s: query,
+            q: query,
           },
         })
       "
@@ -19,7 +19,7 @@
       :to="{
         path: '/artikel',
         query: {
-          s: query,
+          q: query,
         },
       }"
     >
