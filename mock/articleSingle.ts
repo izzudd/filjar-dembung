@@ -1,12 +1,13 @@
-const { faker } = require('@faker-js/faker');
+import { faker } from '@faker-js/faker';
+import { PostData } from '../types/content';
 
-module.exports = (id) => ({
-  id,
-  slug: 'content-mock-' + id,
+export default (id: number): PostData => ({
+  ID: id,
+  slug: id.toString(),
   title: faker.lorem.sentence(),
   image: faker.image.nature(1920, 1080),
-  createdAt: faker.date.recent(),
-  updatedAt: faker.date.future(),
+  CreatedAt: faker.date.recent(),
+  UpdatedAt: faker.date.future(),
   excerpt: faker.lorem.sentences(),
   body: content,
 });
