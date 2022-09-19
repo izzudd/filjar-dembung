@@ -1,0 +1,47 @@
+<template>
+  <article class="flex gap-2">
+    <img
+      :src="post.image"
+      :alt="post.title"
+      class="w-24 aspect-square object-cover"
+    />
+    <div class="w-full">
+      <h3>{{ post.title }}</h3>
+      <time class="mt-2 text-sm font-light block">{{ post.CreatedAt }}</time>
+    </div>
+    <div class="flex flex-col gap-2 justify-center">
+      <button class="bg-primary">Edit</button>
+      <button class="bg-red-500">Hapus</button>
+    </div>
+  </article>
+</template>
+
+<script lang="ts" setup>
+import { PostStrip } from '~~/types/content';
+
+const props = defineProps<{ post: PostStrip }>();
+
+const formatDate = (date) =>
+  new Date(date).toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+// eslint-disable-next-line vue/no-mutating-props
+props.post.CreatedAt = formatDate(props.post.CreatedAt);
+// eslint-disable-next-line vue/no-mutating-props
+props.post.UpdatedAt = formatDate(props.post.UpdatedAt);
+</script>
+
+<style lang="postcss" scoped>
+.h3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+button {
+  @apply w-full py-1 px-4 text-white hover:opacity-80;
+}
+</style>
