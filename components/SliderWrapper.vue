@@ -63,7 +63,7 @@ const triggerScroll = (direction = 1) => {
     slider.value.scroll(contentWidth, 0);
     slideState.value = slideCount.value - 1;
   } else {
-    slider.value.scrollBy(sliderWidth, 0);
+    slider.value.scrollBy(sliderWidth * direction, 0);
   }
 };
 
