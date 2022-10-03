@@ -10,14 +10,19 @@
       <time class="mt-2 text-sm font-light block">{{ post.CreatedAt }}</time>
     </div>
     <div class="flex flex-col gap-2 justify-center">
-      <button class="bg-primary">Edit</button>
-      <button class="bg-red-500">Hapus</button>
+      <ButtonAction
+        class="primary text-center"
+        as-link
+        :to="`/admin/artikel/edit/${post.slug}`"
+        >Edit</ButtonAction
+      >
+      <button class="bg-red-500" @click="deleteArticle()">Hapus</button>
     </div>
   </article>
 </template>
 
 <script lang="ts" setup>
-import { PostStrip } from '~~/types/content';
+import { APIResponse, PostStrip } from '~~/types/content';
 
 const props = defineProps<{ post: PostStrip }>();
 
@@ -31,6 +36,19 @@ const formatDate = (date) =>
 props.post.CreatedAt = formatDate(props.post.CreatedAt);
 // eslint-disable-next-line vue/no-mutating-props
 props.post.UpdatedAt = formatDate(props.post.UpdatedAt);
+
+async function deleteArticle() {
+  const { data, error } = await useFetch<APIResponse<string>>(
+    `/article/${props.post.slug}`,
+    {
+      baseURL: useRuntimeConfig().public.apiEndpoint,
+      method: 'DELETE',
+    }
+  );
+
+  // TODO: Handle error
+  window.console.log(data.value, error.value);
+}
 </script>
 
 <style lang="postcss" scoped>

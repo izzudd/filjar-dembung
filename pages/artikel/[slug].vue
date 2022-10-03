@@ -81,5 +81,8 @@ onMounted(async () => {
 
 const { data: posts } = await useFetch<APIResponse<PostStrip[]>>(`/articles`, {
   baseURL: useRuntimeConfig().public.apiEndpoint,
+  params: {
+    limit: true,
+  },
 });
 </script>

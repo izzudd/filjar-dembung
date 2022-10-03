@@ -14,7 +14,9 @@
       <input v-model="opsPrice" type="number" />
     </div>
     <!-- TODO: Implement onclick event update data -->
-    <ButtonAction class="primary mt-6 !px-10">Simpan</ButtonAction>
+    <ButtonAction class="primary mt-6 !px-10" @click="submit()"
+      >Simpan</ButtonAction
+    >
   </AdminWidgetWrapper>
 </template>
 
@@ -28,6 +30,24 @@ const { data } = await useFetch<APIResponse<Operational>>(`/operasional`, {
 const opsHour = ref(data.value.data.hour);
 const opsDay = ref(data.value.data.day);
 const opsPrice = ref(data.value.data.price);
+
+async function submit() {
+  const { data, error } = await useFetch<APIResponse<Operational>>(
+    `/operasional`,
+    {
+      baseURL: useRuntimeConfig().public.apiEndpoint,
+      method: 'PATCH',
+      body: {
+        day: opsDay.value,
+        hour: opsHour.value,
+        price: opsPrice.value.toString(),
+      },
+    }
+  );
+
+  // window.console.log(opsHour.value, opsDay.value, opsPrice.value);
+  window.console.log(data.value, error.value);
+}
 </script>
 
 <style lang="postcss">

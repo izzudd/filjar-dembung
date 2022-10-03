@@ -13,7 +13,9 @@
           <img src="/icons/search.svg" alt="cari" />
         </button>
       </div>
-      <ButtonAction class="primary">Tambah Artikel</ButtonAction>
+      <ButtonAction class="primary" as-link to="/admin/artikel/baru"
+        >Tambah Artikel</ButtonAction
+      >
     </div>
     <div class="flex flex-col gap-2 mt-6">
       <AdminArticleStrip v-for="p in posts.data" :key="p.slug" :post="p" />
