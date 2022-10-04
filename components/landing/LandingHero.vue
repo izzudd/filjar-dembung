@@ -21,13 +21,15 @@
       </div>
       <div
         v-show="overlay"
-        class="bg-accent-black/20 fixed top-0 left-0 w-screen h-screen p-12 z-50"
+        class="bg-accent-black/20 fixed top-0 left-0 w-screen h-screen flex items-center justify-center"
       >
-        <div class="w-full h-full bg-slate-200 relative">
-          <button class="top-5 left-5 absolute" @click="overlay = false">
+        <div class="relative">
+          <button class="top-5 left-5 absolute z-50" @click="overlay = false">
             <IconClose class="stroke-accent-black" />
           </button>
-          <!-- TODO: Add video -->
+          <video ref="video" controls>
+            <source src="/video/cover-low.mp4" />
+          </video>
         </div>
       </div>
     </div>
@@ -36,6 +38,12 @@
 
 <script setup lang="ts">
 const overlay = ref(false);
+const video = ref(null);
+
+watch(overlay, (v) => {
+  if (v) video.value.play();
+  else video.value.pause();
+});
 </script>
 
 <style lang="postcss" scoped>

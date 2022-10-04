@@ -22,25 +22,23 @@
     <p v-show="searchQuery" class="font-bold text-xl mt-16">
       Hasil Pencarian "{{ searchQuery }}"
     </p>
-    <article class="mx-auto md:w-4/5 my-12">
+    <article
+      v-show="!searchQuery"
+      v-if="posts.data.length > 0"
+      class="mx-auto md:w-4/5 my-12"
+    >
       <img
         class="w-full mb-8"
-        src="https://source.unsplash.com/random/1920x1080/?wallpaper,landscape"
-        alt="lorem"
+        :src="posts.data[0].image"
+        :alt="posts.data[0].title"
       />
-      <h3 class="mb-1">Budidaya Ikan Sidat Banyak Beri Warga Sekitar</h3>
-      <time class="text-sm">1 Januari 2022</time>
+      <h3 class="mb-1">{{ posts.data[0].title }}</h3>
+      <time class="text-sm">{{ posts.data[0].CreatedAt }}</time>
       <p class="mt-4">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
+        {{ posts.data[0].slug }}
       </p>
       <div class="text-right mt-8">
-        <ButtonAction as-link class="secondary" to="/artikel/mock-post"
+        <ButtonAction as-link class="secondary" :to="posts.data[0].slug"
           >Selengkapnya</ButtonAction
         >
       </div>
@@ -49,9 +47,7 @@
     <div class="mx-auto md:w-4/5 my-12 flex flex-col gap-8">
       <PostCard v-for="p in posts.data" :key="p.slug" :post="p" />
     </div>
-    <ButtonAction class="secondary mt-16 mx-auto block"
-      >Lebih Banyak</ButtonAction
-    >
+    <p v-if="posts.data.length === 0" class="text-center">Tidak ditemukan</p>
   </ContentWrapper>
 </template>
 
@@ -73,7 +69,7 @@ const { data: posts, refresh } = await useFetch<
 watch(
   () => route.query,
   async () => {
-    searchQuery.value = route.query.s as string;
+    searchQuery.value = route.query.q as string;
     await refresh();
   }
 );
