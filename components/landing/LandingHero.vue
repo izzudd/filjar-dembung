@@ -4,6 +4,15 @@
       class="absolute top-0 left-0 w-full h-full object-cover"
       src="/img/landscape/2.jpg"
     />
+    <video
+      autoplay
+      loop
+      muted
+      poster="/img/landscape/2.jpg"
+      class="w-full h-full absolute top-0 left-0 object-cover hidden lg:block"
+    >
+      <source src="/video/cover-low.mp4" />
+    </video>
     <div class="relative">
       <div class="min-h-screen flex items-center justify-center mt-12">
         <div class="text-center max-w-3xl">
@@ -14,14 +23,14 @@
           <button class="hidden lg:inline" @click="overlay = true">
             <IconPlay class="fill-accent-white hover:fill-[#D6D8CE]" />
           </button>
-          <ButtonAction as-link class="lg:hidden secondary"
+          <ButtonAction as-link class="lg:hidden secondary" href="#tentang"
             >Selengkapnya</ButtonAction
           >
         </div>
       </div>
       <div
         v-show="overlay"
-        class="bg-accent-black/20 fixed top-0 left-0 w-screen h-screen flex items-center justify-center"
+        class="bg-accent-black/40 fixed top-20 left-0 w-screen h-screen flex items-center justify-center"
       >
         <div class="relative">
           <button class="top-5 left-5 absolute z-50" @click="overlay = false">

@@ -27,7 +27,7 @@
         <div
           class="text-center font-semibold bg-accent border-1 border-[#9BB0A5] py-6 px-2 mb-12"
         >
-          <p class="text-3xl font-semibold mb-2">{{ operational.price }}</p>
+          <p class="text-3xl font-semibold mb-2">Rp{{ operational.price }},-</p>
           <p>Tiket masuk + Parkir</p>
         </div>
         <ButtonAction

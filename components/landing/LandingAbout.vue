@@ -5,8 +5,9 @@
         <h2 class="mb-2">WISATA EDUKASI</h2>
         <h3 class="mb-6">D'Embung Park Pandanmulyo</h3>
         <div class="lg:hidden w-full my-12">
-          <div class="w-full aspect-video bg-slate-200"></div>
-          <!-- add video player -->
+          <video ref="video" controls class="w-full">
+            <source src="/video/cover-low.mp4" />
+          </video>
           <p class="mt-8">Berwisata sambil belajar? Hanya disini!</p>
         </div>
         <p class="text-justify">

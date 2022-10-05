@@ -13,10 +13,10 @@
         </p>
       </div>
       <nav class="hidden lg:block">
-        <NuxtLink to="#">Fasilitas</NuxtLink>
-        <NuxtLink to="#">Lokasi</NuxtLink>
-        <NuxtLink to="#">Testimoni</NuxtLink>
-        <NuxtLink to="#">Artikel</NuxtLink>
+        <NuxtLink to="/#fasilitas">Fasilitas</NuxtLink>
+        <NuxtLink to="/#lokasi">Lokasi</NuxtLink>
+        <NuxtLink to="/#testimoni">Testimoni</NuxtLink>
+        <NuxtLink to="/artikel">Artikel</NuxtLink>
       </nav>
       <div class="w-2/5 hidden lg:block">
         <p class="font-bold mb-2">Alamat</p>
