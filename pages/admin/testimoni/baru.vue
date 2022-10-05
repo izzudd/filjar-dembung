@@ -29,6 +29,9 @@ const name = ref('');
 const testimonial = ref('');
 
 async function submitTestimonial() {
+  const confirmed = window.confirm('Anda yakin akan mengunggah testimoni ini?');
+  if (!confirmed) return;
+
   const { data, error } = await useFetch<APIResponse<string>>(`/testimoni`, {
     baseURL: useRuntimeConfig().public.apiEndpoint,
     method: 'POST',
@@ -38,8 +41,13 @@ async function submitTestimonial() {
     },
   });
 
-  // TODO: Handle error
-  window.console.log(data.value, error.value);
+  if (error.value || data.value?.error) {
+    window.alert('Terjadi kesalahan, silahkan coba lagi');
+    return;
+  }
+
+  window.alert('Testimoni berhasil diunggah');
+  navigateTo('/admin/testimoni');
 }
 </script>
 

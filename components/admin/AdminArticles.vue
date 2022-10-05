@@ -30,5 +30,6 @@ const searchQuery = ref('');
 
 const { data: posts } = await useFetch<APIResponse<PostStrip[]>>(`/articles`, {
   baseURL: useRuntimeConfig().public.apiEndpoint,
+  initialCache: false,
 });
 </script>

@@ -42,6 +42,9 @@ function selectFile(event) {
 }
 
 async function submit() {
+  const confirmed = window.confirm('Anda yakin akan mengunggah artikel ini?');
+  if (!confirmed) return;
+
   const formData = new FormData();
   formData.append('image', cover.value);
   formData.append('title', title.value);
@@ -53,8 +56,13 @@ async function submit() {
     body: formData,
   });
 
-  // TODO: Handle error
-  window.console.log(data.value, error.value);
+  if (error.value || data.value?.error) {
+    window.alert('Terjadi kesalahan, silahkan coba lagi');
+    return;
+  }
+
+  window.alert('Artikel berhasil diunggah');
+  navigateTo('/admin/artikel');
 }
 </script>
 

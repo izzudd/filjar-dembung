@@ -11,9 +11,8 @@
     </div>
     <div class="wrapper">
       <h3>Harga Tiket</h3>
-      <input v-model="opsPrice" type="number" />
+      <input v-model="opsPrice" type="text" />
     </div>
-    <!-- TODO: Implement onclick event update data -->
     <ButtonAction class="primary mt-6 !px-10" @click="submit()"
       >Simpan</ButtonAction
     >
@@ -23,30 +22,38 @@
 <script lang="ts" setup>
 import { APIResponse, Operational } from '~~/types/content';
 
-const { data } = await useFetch<APIResponse<Operational>>(`/operasional`, {
-  baseURL: useRuntimeConfig().public.apiEndpoint,
-});
+const { data, refresh } = await useFetch<APIResponse<Operational>>(
+  `/operasional`,
+  {
+    baseURL: useRuntimeConfig().public.apiEndpoint,
+  }
+);
 
 const opsHour = ref(data.value.data.hour);
 const opsDay = ref(data.value.data.day);
 const opsPrice = ref(data.value.data.price);
 
 async function submit() {
-  const { data, error } = await useFetch<APIResponse<Operational>>(
-    `/operasional`,
-    {
-      baseURL: useRuntimeConfig().public.apiEndpoint,
-      method: 'PATCH',
-      body: {
-        day: opsDay.value,
-        hour: opsHour.value,
-        price: opsPrice.value.toString(),
-      },
-    }
+  const confirmed = window.confirm(
+    'Anda yakin ingin mengubah data operasional?'
   );
+  if (!confirmed) return;
 
-  // window.console.log(opsHour.value, opsDay.value, opsPrice.value);
-  window.console.log(data.value, error.value);
+  const { error } = await useFetch<APIResponse<Operational>>(`/operasional`, {
+    baseURL: useRuntimeConfig().public.apiEndpoint,
+    method: 'PATCH',
+    body: {
+      day: opsDay.value,
+      hour: opsHour.value,
+      price: opsPrice.value,
+    },
+  });
+  if (error.value || data.value?.error) {
+    window.alert('Terjadi kesalahan, silahkan coba lagi');
+    return;
+  }
+  window.alert('Data operasional berhasil diubah');
+  refresh();
 }
 </script>
 
