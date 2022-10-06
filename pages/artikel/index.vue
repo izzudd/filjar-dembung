@@ -33,9 +33,9 @@
         :alt="posts.data[0].title"
       />
       <h3 class="mb-1">{{ posts.data[0].title }}</h3>
-      <time class="text-sm">{{ posts.data[0].CreatedAt }}</time>
+      <time class="text-sm">{{ formatDate(posts.data[0].CreatedAt) }}</time>
       <p class="mt-4">
-        {{ posts.data[0].slug }}
+        {{ posts.data[0].excerpt }}
       </p>
       <div class="text-right mt-8">
         <ButtonAction as-link class="secondary" :to="posts.data[0].slug"
@@ -73,4 +73,11 @@ watch(
     await refresh();
   }
 );
+
+const formatDate = (date) =>
+  new Date(date).toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 </script>

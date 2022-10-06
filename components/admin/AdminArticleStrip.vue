@@ -7,7 +7,9 @@
     />
     <div class="w-full">
       <h3>{{ post.title }}</h3>
-      <time class="mt-2 text-sm font-light block">{{ post.CreatedAt }}</time>
+      <time class="mt-2 text-sm font-light block">{{
+        formatDate(post.CreatedAt)
+      }}</time>
     </div>
     <div class="flex flex-col gap-2 justify-center">
       <ButtonAction
@@ -32,10 +34,6 @@ const formatDate = (date) =>
     month: 'long',
     year: 'numeric',
   });
-// eslint-disable-next-line vue/no-mutating-props
-props.post.CreatedAt = formatDate(props.post.CreatedAt);
-// eslint-disable-next-line vue/no-mutating-props
-props.post.UpdatedAt = formatDate(props.post.UpdatedAt);
 
 async function deleteArticle() {
   const { data, error } = await useFetch<APIResponse<string>>(

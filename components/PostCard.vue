@@ -2,10 +2,14 @@
   <article
     class="flex flex-col lg:flex-row items-center gap-8 px-8 py-6 bg-secondary"
   >
-    <img class="aspect-square lg:w-1/3" :src="post.image" :alt="post.title" />
+    <img
+      class="aspect-square lg:w-1/3 object-cover"
+      :src="post.image"
+      :alt="post.title"
+    />
     <div class="w-full">
       <h3 class="mb-1">{{ post.title }}</h3>
-      <time class="text-sm">{{ post.CreatedAt }}</time>
+      <time class="text-sm">{{ formatDate(post.CreatedAt) }}</time>
       <p class="mt-4 excerpt">
         {{ post.excerpt }}
       </p>
@@ -31,11 +35,6 @@ const formatDate = (date) =>
     month: 'long',
     year: 'numeric',
   });
-
-// eslint-disable-next-line vue/no-mutating-props
-props.post.CreatedAt = formatDate(props.post.CreatedAt);
-// eslint-disable-next-line vue/no-mutating-props
-props.post.UpdatedAt = formatDate(props.post.UpdatedAt);
 </script>
 
 <style lang="postcss" scoped>
