@@ -38,7 +38,10 @@
         {{ posts.data[0].excerpt }}
       </p>
       <div class="text-right mt-8">
-        <ButtonAction as-link class="secondary" :to="posts.data[0].slug"
+        <ButtonAction
+          as-link
+          class="secondary"
+          :to="`/artikel/${posts.data[0].slug}`"
           >Selengkapnya</ButtonAction
         >
       </div>
