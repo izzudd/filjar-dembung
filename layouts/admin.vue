@@ -21,6 +21,15 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+onMounted(() => {
+  window.console.log(window.localStorage.getItem('admin_token'));
+  if (!window.localStorage.getItem('admin_token')) {
+    navigateTo('/admin/login');
+  }
+});
+</script>
+
 <style lang="postcss">
 h2 {
   @apply text-2xl font-bold font-body text-accent-black;

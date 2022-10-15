@@ -1,9 +1,9 @@
 <template>
   <article
-    class="flex flex-col lg:flex-row items-center gap-8 px-8 py-6 bg-secondary"
+    class="flex flex-col lg:flex-row items-center gap-8 px-4 lg:px-8 py-6 bg-secondary"
   >
     <img
-      class="aspect-square lg:w-1/3 object-cover"
+      class="aspect-square lg:w-72 object-cover"
       :src="post.image"
       :alt="post.title"
     />
