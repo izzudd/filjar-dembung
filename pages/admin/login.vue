@@ -17,6 +17,8 @@
 </template>
 
 <script lang="ts" setup>
+import { APIResponse, AuthToken } from '~~/types/content';
+
 definePageMeta({
   layout: false,
 });
@@ -24,23 +26,34 @@ definePageMeta({
 const username = ref('');
 const password = ref('');
 
-function getToken() {
-  return username.value == 'admin' && password.value == 'admin' ? 'admin' : '';
+async function getToken() {
+  const { data, error } = await useFetch<APIResponse<AuthToken>>('/login', {
+    baseURL: useRuntimeConfig().public.apiEndpoint,
+    method: 'POST',
+    body: {
+      nickname: username.value,
+      password: password.value,
+    },
+    initialCache: false,
+  });
+
+  if (error.value || !data.value.success) return false;
+  return data.value.data.token;
 }
 
-function login() {
+async function login() {
   if (!username.value && !password.value) {
     alert('Username dan Password tidak boleh kosong');
     return;
   }
 
-  const token = getToken();
+  const token = await getToken();
   if (!token) {
     alert('Username atau Password salah');
     return;
   }
 
-  window.localStorage.setItem('admin_token', 'admin');
+  window.localStorage.setItem('admin_token', token);
   navigateTo('/admin');
 }
 </script>

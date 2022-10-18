@@ -22,9 +22,34 @@
 </template>
 
 <script lang="ts" setup>
-onMounted(() => {
-  window.console.log(window.localStorage.getItem('admin_token'));
-  if (!window.localStorage.getItem('admin_token')) {
+import { APIResponse } from '~~/types/content';
+
+async function validateAdminToken(token) {
+  const { data, error, refresh } = await useFetch<APIResponse<{}>>(
+    '/authToken',
+    {
+      baseURL: useRuntimeConfig().public.apiEndpoint,
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      initialCache: false,
+    }
+  );
+  await refresh();
+  window.console.log(data.value, error.value, token);
+
+  return data.value?.success && !error.value;
+}
+
+onMounted(async () => {
+  const tokenIsValid = await validateAdminToken(
+    window.localStorage.getItem('admin_token')
+  );
+
+  window.console.log(tokenIsValid);
+
+  if (!tokenIsValid) {
     navigateTo('/admin/login');
   }
 });

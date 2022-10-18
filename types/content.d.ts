@@ -38,4 +38,9 @@ interface APIResponse<T, A = void> extends A {
   error?: string;
 }
 
+interface AuthToken {
+  data: string;
+  token: string;
+}
+
 // export type APIResponse<T, A> = APIResponse<T> | A;
