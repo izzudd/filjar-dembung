@@ -29,6 +29,7 @@ import { Testimonial } from '~~/types/content';
 
 const { data } = await useFetch<{ data: Testimonial[] }>(`/testimoni`, {
   baseURL: useRuntimeConfig().public.apiEndpoint,
+  initialCache: false,
 });
 
 const testimonials = data.value.data;

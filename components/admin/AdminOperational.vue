@@ -48,7 +48,7 @@ async function submit() {
       price: opsPrice.value,
     },
   });
-  if (error.value || data.value?.error) {
+  if (error.value || !data.value?.success) {
     window.alert('Terjadi kesalahan, silahkan coba lagi');
     return;
   }

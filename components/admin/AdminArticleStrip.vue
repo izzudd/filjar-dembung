@@ -27,6 +27,7 @@
 import { APIResponse, PostStrip } from '~~/types/content';
 
 const props = defineProps<{ post: PostStrip }>();
+const emit = defineEmits(['delete']);
 
 const formatDate = (date) =>
   new Date(date).toLocaleDateString('id-ID', {
@@ -36,16 +37,30 @@ const formatDate = (date) =>
   });
 
 async function deleteArticle() {
+  const confirmed = window.confirm(
+    `Anda yakin akan menghapus artikel berjudul "${props.post.title}"?`
+  );
+  if (!confirmed) return;
+
   const { data, error } = await useFetch<APIResponse<string>>(
     `/article/${props.post.slug}`,
     {
       baseURL: useRuntimeConfig().public.apiEndpoint,
       method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${window.localStorage.getItem('admin_token')}`,
+      },
+      initialCache: false,
     }
   );
 
-  // TODO: Handle error
-  window.console.log(data.value, error.value);
+  if (error.value || !data.value?.success) {
+    window.alert('Gagal menghapus artikel, silahkan coba lagi');
+    return;
+  }
+
+  window.alert('Artikel berhasil dihapus');
+  emit('delete');
 }
 </script>
 

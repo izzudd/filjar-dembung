@@ -18,7 +18,12 @@
       >
     </div>
     <div class="flex flex-col gap-2 mt-6">
-      <AdminArticleStrip v-for="p in posts.data" :key="p.slug" :post="p" />
+      <AdminArticleStrip
+        v-for="p in posts.data"
+        :key="p.slug"
+        :post="p"
+        @delete="refresh()"
+      />
     </div>
   </AdminWidgetWrapper>
 </template>
@@ -28,8 +33,11 @@ import { APIResponse, PostStrip } from '~~/types/content';
 
 const searchQuery = ref('');
 
-const { data: posts } = await useFetch<APIResponse<PostStrip[]>>(`/articles`, {
-  baseURL: useRuntimeConfig().public.apiEndpoint,
-  initialCache: false,
-});
+const { data: posts, refresh } = await useFetch<APIResponse<PostStrip[]>>(
+  `/articles`,
+  {
+    baseURL: useRuntimeConfig().public.apiEndpoint,
+    initialCache: false,
+  }
+);
 </script>

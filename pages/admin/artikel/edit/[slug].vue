@@ -39,6 +39,7 @@ const { data, refresh } = await useFetch<APIResponse<PostData>>(
   `/article/${slug}`,
   {
     baseURL: useRuntimeConfig().public.apiEndpoint,
+    initialCache: false,
   }
 );
 
@@ -76,10 +77,14 @@ async function submit() {
       baseURL: useRuntimeConfig().public.apiEndpoint,
       method: 'PATCH',
       body: formData,
+      headers: {
+        Authorization: `Bearer ${window.localStorage.getItem('admin_token')}`,
+      },
+      initialCache: false,
     }
   );
 
-  if (error.value || data.value?.error) {
+  if (error.value || !data.value?.success) {
     window.alert('Terjadi kesalahan, silahkan coba lagi');
     return;
   }

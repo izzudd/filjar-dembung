@@ -39,9 +39,13 @@ async function submitTestimonial() {
       identitas: name.value,
       testimoni: testimonial.value,
     },
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem('admin_token')}`,
+    },
+    initialCache: false,
   });
 
-  if (error.value || data.value?.error) {
+  if (error.value || !data.value?.success) {
     window.alert('Terjadi kesalahan, silahkan coba lagi');
     return;
   }
