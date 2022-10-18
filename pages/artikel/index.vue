@@ -48,7 +48,10 @@
     </article>
     <div class="border-b border-primary pb-4"></div>
     <div class="mx-auto md:w-4/5 my-12 flex flex-col gap-8">
-      <PostCard v-for="p in posts.data" :key="p.slug" :post="p" />
+      <p v-if="pending">Sedang memuat...</p>
+      <template v-else>
+        <PostCard v-for="p in posts.data" :key="p.slug" :post="p" />
+      </template>
     </div>
     <p v-if="posts.data.length === 0" class="text-center">Tidak ditemukan</p>
   </ContentWrapper>
@@ -58,24 +61,28 @@
 import { APIResponse, PostStrip } from '~~/types/content';
 
 const route = useRoute();
-const searchQuery = ref(route.query?.q || '');
+const searchQuery = computed(() => route.query.q);
 
-const { data: posts, refresh } = await useFetch<
-  APIResponse<PostStrip[], { query: string }>
->(searchQuery.value ? '/article' : '/articles', {
-  baseURL: useRuntimeConfig().public.apiEndpoint,
-  params: {
-    q: searchQuery.value,
-  },
+const fetchData = () =>
+  $fetch<APIResponse<PostStrip[], { query: string }>>(
+    searchQuery.value ? '/article' : '/articles',
+    {
+      baseURL: useRuntimeConfig().public.apiEndpoint,
+      params: {
+        q: searchQuery.value,
+      },
+    }
+  );
+
+const {
+  data: posts,
+  refresh,
+  pending,
+} = useAsyncData(('artikel-' + searchQuery.value) as string, fetchData, {
+  initialCache: false,
 });
 
-watch(
-  () => route.query,
-  async () => {
-    searchQuery.value = route.query.q as string;
-    await refresh();
-  }
-);
+watch(searchQuery, async () => await refresh());
 
 const formatDate = (date) =>
   new Date(date).toLocaleDateString('id-ID', {
