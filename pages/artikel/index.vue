@@ -1,6 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <ContentWrapper>
+    <Head>
+      <Title>Artikel</Title>
+      <Meta property="og:locale" content="id_ID" />
+    </Head>
+
     <NuxtLink v-show="searchQuery" to="/artikel"
       ><img
         class="rotate-180 w-7 p-2 bg-secondary mb-4"
@@ -22,38 +27,40 @@
     <p v-show="searchQuery" class="font-bold text-xl mt-16">
       Hasil Pencarian "{{ searchQuery }}"
     </p>
-    <article
-      v-show="!searchQuery"
-      v-if="posts.data.length > 0"
-      class="mx-auto md:w-4/5 my-12"
-    >
-      <img
-        class="w-full mb-8"
-        :src="posts.data[0].image"
-        :alt="posts.data[0].title"
-      />
-      <h3 class="mb-1">{{ posts.data[0].title }}</h3>
-      <time class="text-sm">{{ formatDate(posts.data[0].CreatedAt) }}</time>
-      <p class="mt-4">
-        {{ posts.data[0].excerpt }}
-      </p>
-      <div class="text-right mt-8">
-        <ButtonAction
-          as-link
-          class="secondary"
-          :to="`/artikel/${posts.data[0].slug}`"
-          >Selengkapnya</ButtonAction
-        >
+    <p v-if="pending" class="text-center mt-8">Sedang memuat...</p>
+    <template v-else>
+      <article
+        v-show="!searchQuery"
+        v-if="posts.data.length > 0"
+        class="mx-auto md:w-4/5 my-12"
+      >
+        <img
+          class="w-full mb-8"
+          :src="posts.data[0].image"
+          :alt="posts.data[0].title"
+        />
+        <h3 class="mb-1">{{ posts.data[0].title }}</h3>
+        <time class="text-sm">{{ formatDate(posts.data[0].CreatedAt) }}</time>
+        <p class="mt-4">
+          {{ posts.data[0].excerpt }}
+        </p>
+        <div class="text-right mt-8">
+          <ButtonAction
+            as-link
+            class="secondary"
+            :to="`/artikel/${posts.data[0].slug}`"
+            >Selengkapnya</ButtonAction
+          >
+        </div>
+      </article>
+      <div class="border-b border-primary pb-4"></div>
+      <div class="mx-auto md:w-4/5 my-12 flex flex-col gap-8">
+        <PostCard v-for="p in posts.data || []" :key="p.slug" :post="p" />
       </div>
-    </article>
-    <div class="border-b border-primary pb-4"></div>
-    <div class="mx-auto md:w-4/5 my-12 flex flex-col gap-8">
-      <p v-if="pending">Sedang memuat...</p>
-      <template v-else>
-        <PostCard v-for="p in posts.data" :key="p.slug" :post="p" />
-      </template>
-    </div>
-    <p v-if="posts.data.length === 0" class="text-center">Tidak ditemukan</p>
+      <p v-if="posts.data?.length === 0 && !pending" class="text-center">
+        Tidak ditemukan
+      </p>
+    </template>
   </ContentWrapper>
 </template>
 

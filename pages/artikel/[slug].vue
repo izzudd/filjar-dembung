@@ -1,6 +1,24 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <ContentWrapper>
+    <Head>
+      <Title>{{ post.title }}</Title>
+      <Meta name="description" :content="post.excerpt" />
+      <Meta property="og:locale" content="id_ID" />
+      <Meta property="og:type" content="article" />
+      <Meta property="og:title" :content="post.title" />
+      <Meta property="og:description" :content="post.excerpt" />
+      <Meta
+        property="article:published_time"
+        :content="post.CreatedAt.toString()"
+      />
+      <Meta
+        property="article:modified_time"
+        :content="(post.UpdatedAt || post.UpdatedAt).toString()"
+      />
+      <Meta property="og:image" :content="post.image" />
+    </Head>
+
     <NuxtLink to="/artikel"
       ><img
         class="rotate-180 w-7 p-2 bg-secondary mb-4"

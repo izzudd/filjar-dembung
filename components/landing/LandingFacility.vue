@@ -25,11 +25,6 @@
           dilengkapi saung istirahat menjadikan tempat yang tepat untuk
           memanjakan mata.
         </p>
-        <div class="text-right mt-8">
-          <ButtonAction as-link class="secondary" to="/artikel/mock-post"
-            >Lihat Artikel</ButtonAction
-          >
-        </div>
       </div>
       <img src="/img/landscape/3.jpg" alt="lorem" />
     </div>
@@ -42,11 +37,6 @@
           pengalaman bercocok tanam dimulai dari bunga hingga tanaman sayur
           mayur.
         </p>
-        <div class="text-right lg:text-left mt-8">
-          <ButtonAction as-link class="secondary" to="/artikel/mock-post"
-            >Lihat Artikel</ButtonAction
-          >
-        </div>
       </div>
       <img src="/img/landscape/alt/4.jpg" alt="lorem" />
     </div>
