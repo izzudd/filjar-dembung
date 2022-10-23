@@ -40,10 +40,10 @@ const testimonials = data.value.data;
 }
 
 .slider-item {
-  @apply bg-secondary py-8 lg:py-24 relative px-12 lg:px-0 h-full;
+  @apply bg-secondary py-8 lg:py-24 relative px-12 lg:px-0 h-full flex flex-col items-center justify-center;
 
   p {
-    @apply lg:w-4/5 mx-auto lg:text-justify mt-12;
+    @apply lg:w-4/5 mx-auto lg:text-justify mt-12 text-center;
   }
 
   h3 {

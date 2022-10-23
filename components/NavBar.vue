@@ -58,7 +58,7 @@
         </nav>
       </div>
       <ButtonAction
-        class="primary w-full block !py-4"
+        class="primary w-full block !py-4 text-center"
         as-link
         to="https://ig.me/m/embungpark_official"
       >
