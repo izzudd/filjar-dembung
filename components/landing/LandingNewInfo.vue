@@ -12,7 +12,10 @@
         </div>
       </div>
       <div class="text-center mb-8">
-        <ButtonAction as-link class="secondary" to="#"
+        <ButtonAction
+          as-link
+          class="secondary"
+          to="https://www.instagram.com/embungpark_official"
           >Selengkapnya</ButtonAction
         >
       </div>

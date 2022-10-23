@@ -34,20 +34,19 @@
       <img class="w-full my-8" :src="post.image" alt="lorem" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="prose max-w-none" v-html="post.body"></div>
-      <div class="mt-12 flex items-center justify-between">
-        <span class="text-sm block">Tags: Budidaya Ikan, Cocok Tanam</span>
+      <div class="mt-12 flex items-center justify-end">
         <SocialIcons class="flex gap-4" green />
       </div>
     </article>
     <h3 class="font-bold text-xl border-b border-primary mt-24 pb-2">
       Atikel Lainnya
     </h3>
-    <div class="mx-auto w-4/5 my-12 flex flex-col gap-8">
+    <div class="mx-auto w-4/5 mt-12 flex flex-col gap-8">
       <PostCard v-for="p in posts.data" :key="p.slug" :post="p" />
+      <ButtonAction class="secondary mt-16 mx-auto block" as-link to="/artikel"
+        >Lebih Banyak</ButtonAction
+      >
     </div>
-    <ButtonAction class="secondary mt-16 mx-auto block"
-      >Lebih Banyak</ButtonAction
-    >
   </ContentWrapper>
 </template>
 

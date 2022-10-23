@@ -32,7 +32,10 @@
       </div>
       <div class="hidden lg:block">
         <p class="font-bold mb-2">Kontak</p>
-        <ButtonAction class="primary whitespace-nowrap"
+        <ButtonAction
+          class="primary whitespace-nowrap"
+          as-link
+          to="https://ig.me/m/embungpark_official"
           >Hubungi Kami</ButtonAction
         >
       </div>

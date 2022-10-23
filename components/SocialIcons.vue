@@ -1,14 +1,14 @@
 <template>
   <div>
-    <NuxtLink to="#"
+    <NuxtLink to="https://www.instagram.com/embungpark_official"
       ><img :src="`/icons/instagram${suffix}.svg`" alt="instagram"
     /></NuxtLink>
-    <NuxtLink to="#"
+    <!-- <NuxtLink to="#"
       ><img :src="`/icons/youtube${suffix}.svg`" alt="youtube"
     /></NuxtLink>
     <NuxtLink to="#"
       ><img :src="`/icons/facebook${suffix}.svg`" alt="facebook"
-    /></NuxtLink>
+    /></NuxtLink> -->
   </div>
 </template>
 

@@ -21,7 +21,13 @@
           <NuxtLink to="/#testimoni">Testimoni</NuxtLink>
           <NuxtLink to="/artikel">Artikel</NuxtLink>
         </nav>
-        <ButtonAction class="primary ml-8"> Hubungi Kami </ButtonAction>
+        <ButtonAction
+          class="primary ml-8"
+          as-link
+          to="https://ig.me/m/embungpark_official"
+        >
+          Hubungi Kami
+        </ButtonAction>
       </div>
 
       <div class="lg:hidden">
@@ -51,7 +57,11 @@
           <NuxtLink to="/artikel">Artikel</NuxtLink>
         </nav>
       </div>
-      <ButtonAction class="primary w-full block !py-4">
+      <ButtonAction
+        class="primary w-full block !py-4"
+        as-link
+        to="https://ig.me/m/embungpark_official"
+      >
         <span class="container mx-auto">Hubungi Kami</span>
       </ButtonAction>
     </div>
