@@ -47,6 +47,9 @@ async function submit() {
       hour: opsHour.value,
       price: opsPrice.value,
     },
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem('admin_token')}`,
+    },
   });
   if (error.value || !data.value?.success) {
     window.alert('Terjadi kesalahan, silahkan coba lagi');
