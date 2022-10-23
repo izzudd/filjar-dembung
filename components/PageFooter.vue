@@ -35,7 +35,7 @@
         <ButtonAction
           class="primary whitespace-nowrap"
           as-link
-          to="https://ig.me/m/embungpark_official"
+          to="https://ig.me/m/dembungpark" target="blank"
           >Hubungi Kami</ButtonAction
         >
       </div>

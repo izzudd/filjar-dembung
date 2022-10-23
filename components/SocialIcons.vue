@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLink to="https://www.instagram.com/embungpark_official"
+    <NuxtLink to="https://www.instagram.com/dembungpark" target="blank"
       ><img :src="`/icons/instagram${suffix}.svg`" alt="instagram"
     /></NuxtLink>
     <!-- <NuxtLink to="#"

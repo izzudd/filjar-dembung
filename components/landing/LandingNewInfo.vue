@@ -15,7 +15,8 @@
         <ButtonAction
           as-link
           class="secondary"
-          to="https://www.instagram.com/embungpark_official"
+          to="https://www.instagram.com/dembungpark"
+          target="blank"
           >Selengkapnya</ButtonAction
         >
       </div>

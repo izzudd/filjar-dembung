@@ -24,7 +24,8 @@
         <ButtonAction
           class="primary ml-8"
           as-link
-          to="https://ig.me/m/embungpark_official"
+          to="https://ig.me/m/dembungpark"
+          target="blank"
         >
           Hubungi Kami
         </ButtonAction>
@@ -60,7 +61,8 @@
       <ButtonAction
         class="primary w-full block !py-4 text-center"
         as-link
-        to="https://ig.me/m/embungpark_official"
+        to="https://ig.me/m/dembungpark"
+        target="blank"
       >
         <span class="container mx-auto">Hubungi Kami</span>
       </ButtonAction>
