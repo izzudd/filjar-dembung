@@ -18,7 +18,10 @@
         </SliderItem>
       </SliderWrapper>
     </div>
-    <ButtonAction class="primary block mx-auto mt-4"
+    <ButtonAction
+      as-link
+      to="/admin/testimoni/baru"
+      class="primary w-fit block mx-auto mt-4"
       >Tambah Testimoni</ButtonAction
     >
   </AdminWidgetWrapper>
