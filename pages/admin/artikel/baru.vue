@@ -16,7 +16,11 @@
     </div>
     <div class="input">
       <h3>Isi Artikel</h3>
-      <textarea v-model="body" rows="8"></textarea>
+      <ClientOnly>
+        <div class="bg-white">
+          <QuillEditor v-model:content="body" content-type="html" />
+        </div>
+      </ClientOnly>
     </div>
     <ButtonAction
       class="primary ml-auto w-fit block mt-4 !px-8"
@@ -28,6 +32,8 @@
 
 <script lang="ts" setup>
 import { APIResponse } from '~~/types/content';
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 definePageMeta({
   layout: 'admin',
@@ -35,10 +41,14 @@ definePageMeta({
 
 const title = ref('');
 const cover = ref(null);
-const body = ref('');
+const body = ref(null);
 
 function selectFile(event) {
   cover.value = event.target.files[0] || null;
+}
+
+function logBody() {
+  window.console.log(body.value);
 }
 
 async function submit() {

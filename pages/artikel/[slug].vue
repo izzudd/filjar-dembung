@@ -52,11 +52,6 @@
 
 <script lang="ts" setup>
 import type { APIResponse, PostData, PostStrip } from '~~/types/content';
-import rehypeSanitize from 'rehype-sanitize';
-import rehypeStringify from 'rehype-stringify';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import { unified } from 'unified';
 
 const slug = useRoute().params.slug as string;
 
@@ -75,14 +70,6 @@ const formatDate = (date) =>
   });
 
 async function formatResponse(data: PostData) {
-  data.body = String(
-    await unified()
-      .use(remarkParse)
-      .use(remarkRehype)
-      .use(rehypeSanitize)
-      .use(rehypeStringify)
-      .process(data.body)
-  );
   data.CreatedAt = formatDate(data.CreatedAt);
   data.UpdatedAt = formatDate(data.UpdatedAt);
 

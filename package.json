@@ -34,6 +34,7 @@
     "vue-eslint-parser": "^9.0.3"
   },
   "dependencies": {
+    "@vueup/vue-quill": "^1.0.0",
     "vue-gtag": "^2.0.1"
   }
 }

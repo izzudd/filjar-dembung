@@ -16,7 +16,17 @@
     </div>
     <div class="input">
       <h3>Isi Artikel</h3>
-      <textarea v-model="body" rows="8"></textarea>
+      <div class="bg-white">
+        <ClientOnly>
+          <div class="bg-white">
+            <QuillEditor
+              ref="editor"
+              v-model:content="body"
+              content-type="html"
+            />
+          </div>
+        </ClientOnly>
+      </div>
     </div>
     <ButtonAction
       class="primary ml-auto w-fit block mt-4 !px-8"
@@ -28,6 +38,8 @@
 
 <script lang="ts" setup>
 import { APIResponse, PostData } from '~~/types/content';
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 definePageMeta({
   layout: 'admin',
@@ -40,17 +52,20 @@ const { data, refresh } = await useFetch<APIResponse<PostData>>(
   {
     baseURL: useRuntimeConfig().public.apiEndpoint,
     initialCache: false,
+    server: false,
   }
 );
 
 const title = ref('');
 const cover = ref(null);
 const body = ref('');
+const editor = ref(null);
 
 onMounted(async () => {
   await refresh();
   title.value = data.value.data.title;
   body.value = data.value.data.body;
+  editor.value.setContents(body.value, 'api');
 });
 
 onUnmounted(async () => {
