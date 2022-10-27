@@ -14,7 +14,7 @@
     /></NuxtLink>
     <header class="text-center lg:border-b border-primary pb-12 lg:pb-4 mb-6">
       <h1 class="text-primary text-3xl lg:text-5xl tracking-widest mb-1">
-        ARTIKEL EDUKASI
+        BERITA TERBARU
       </h1>
       <p class="font-bold lg:text-xl">D'Embung Park Pandanmulyo</p>
     </header>
@@ -22,7 +22,7 @@
       v-show="!searchQuery"
       class="font-bold lg:text-xl border-b border-primary flex-grow pb-2"
     >
-      Artikel Terbaru
+      Berita Terbaru
     </p>
     <p v-show="searchQuery" class="font-bold text-xl mt-16">
       Hasil Pencarian "{{ searchQuery }}"

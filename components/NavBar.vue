@@ -19,7 +19,7 @@
           <NuxtLink to="/#fasilitas">Fasilitas</NuxtLink>
           <NuxtLink to="/#lokasi">Lokasi</NuxtLink>
           <NuxtLink to="/#testimoni">Testimoni</NuxtLink>
-          <NuxtLink to="/artikel">Artikel</NuxtLink>
+          <NuxtLink to="/artikel">Berita</NuxtLink>
         </nav>
         <ButtonAction
           class="primary ml-8"
@@ -55,7 +55,7 @@
           <NuxtLink to="/#fasilitas">Fasilitas</NuxtLink>
           <NuxtLink to="/#lokasi">Lokasi</NuxtLink>
           <NuxtLink to="/#testimoni">Testimoni</NuxtLink>
-          <NuxtLink to="/artikel">Artikel</NuxtLink>
+          <NuxtLink to="/artikel">Berita</NuxtLink>
         </nav>
       </div>
       <ButtonAction
