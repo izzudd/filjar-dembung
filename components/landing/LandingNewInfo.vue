@@ -1,45 +1,41 @@
 <template>
-  <SectionWrapper class="bg-secondary">
-    <div class="py-24 text-center">
-      <h2 class="mb-16">INFORMASI TERBARU</h2>
-      <div class="flex gap-6 mb-12 overflow-x-auto lg:overflow-hidden">
-        <div
-          v-for="image in images"
-          :key="image"
-          class="aspect-square w-4/5 bg-slate-200 flex-shrink-0 lg:flex-shrink"
+  <SectionWrapper>
+    <div class="lg:bg-secondary flex lg:items-center gap-16 lg:p-16">
+      <div class="flex-1 text-center lg:text-left">
+        <h2 class="mb-2">INFORMASI LAINNYA</h2>
+        <p class="text-justify mb-2">
+          Selain sebagai tempat wisata, D'Embung Park Pandanmulyo juga
+          menyediakan fasilitas yang dapat Anda gunakan untuk kegiatan lainnya,
+          seperti:
+        </p>
+        <ul class="list-disc list-inside mb-12">
+          <li>Pernikahan</li>
+          <li>Pertemuan Keluarga</li>
+          <li>Kegiatan Kunjungan, dan sebagainya...</li>
+        </ul>
+        <ButtonAction
+          class="secondary"
+          as-link
+          to="https://ig.me/m/dembungpark"
+          target="blank"
         >
-          <img :src="image" alt="lorem" />
+          Hubungi Sekarang
+        </ButtonAction>
+        <div class="font-semibold flex items-center justify-between mt-6">
+          Atau kunjungi sosial media kami
+          <SocialIcons green class="flex gap-4 h-8 justify-end" />
         </div>
       </div>
-      <div class="text-center mb-8">
-        <ButtonAction
-          as-link
-          class="secondary"
-          to="https://www.instagram.com/dembungpark"
-          target="blank"
-          >Selengkapnya</ButtonAction
-        >
-      </div>
-      <p class="font-semibold mb-4">atau kunjungi sosial media kami lainnya</p>
-      <SocialIcons green class="flex gap-4 h-8 justify-center" />
+      <SliderWrapper v-once class="hidden lg:block flex-1">
+        <SliderItem v-for="idx in 5" :key="idx">
+          <!-- TODO: Fetch image from API -->
+          <img
+            :src="`/img/landscape/${idx}.jpg`"
+            class="w-full object-cover"
+            alt="lorem"
+          />
+        </SliderItem>
+      </SliderWrapper>
     </div>
   </SectionWrapper>
 </template>
-
-<script lang="ts" setup>
-const start = Math.floor(Math.random() * 5);
-const images: string[] = [];
-
-for (let i = 0; i < 3; i++)
-  images.push(
-    `/img/landscape/${Math.random() > 0.5 ? 'alt/' : ''}${
-      ((start + i) % 5) + 1
-    }.jpg`
-  );
-</script>
-
-<style scoped lang="postcss">
-img {
-  @apply aspect-square object-cover block w-full;
-}
-</style>

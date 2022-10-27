@@ -18,6 +18,6 @@
     <LandingFacility id="fasilitas" class="mt-24" />
     <LandingLocation id="lokasi" class="mt-24" />
     <LandingTestimonials id="testimoni" class="mt-24" />
-    <LandingNewInfo id="informasi" class="mt-24" />
+    <LandingNewInfo id="informasi" class="my-24" />
   </main>
 </template>
