@@ -37,7 +37,6 @@ async function validateAdminToken(token) {
     }
   );
   await refresh();
-  window.console.log(data.value, error.value, token);
 
   return data.value?.success && !error.value;
 }
@@ -46,8 +45,6 @@ onMounted(async () => {
   const tokenIsValid = await validateAdminToken(
     window.localStorage.getItem('admin_token')
   );
-
-  window.console.log(tokenIsValid);
 
   if (!tokenIsValid) {
     navigateTo('/admin/login');
