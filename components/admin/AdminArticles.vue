@@ -37,7 +37,7 @@ import { APIResponse, PostStrip } from '~~/types/content';
 const searchQuery = ref('');
 
 const fetchData = () =>
-  $fetch<APIResponse<PostStrip[], { query: string }>>(
+  $fetch<APIResponse<PostStrip[]>>(
     searchQuery.value ? '/article' : '/articles',
     {
       baseURL: useRuntimeConfig().public.apiEndpoint,

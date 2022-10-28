@@ -30,7 +30,7 @@ export interface Testimonial {
   testimoni: string;
 }
 
-interface APIResponse<T, A = void> extends A {
+interface APIResponse<T> {
   data: T;
   success: boolean;
   statusCode: number;
