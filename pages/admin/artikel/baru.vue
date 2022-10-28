@@ -17,12 +17,14 @@
     <div class="input">
       <h3>Isi Artikel</h3>
       <div class="bg-white">
-        <QuillEditor
-          v-model:content="body"
-          content-type="html"
-          toolbar="full"
-          :modules="quillModules"
-        />
+        <ClientOnly>
+          <QuillEditor
+            v-model:content="body"
+            content-type="html"
+            toolbar="full"
+            :modules="quillModules"
+          />
+        </ClientOnly>
       </div>
     </div>
     <ButtonAction
