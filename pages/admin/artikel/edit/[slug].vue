@@ -17,15 +17,13 @@
     <div class="input">
       <h3>Isi Artikel</h3>
       <div class="bg-white">
-        <ClientOnly>
-          <div class="bg-white">
-            <QuillEditor
-              ref="editor"
-              v-model:content="body"
-              content-type="html"
-            />
-          </div>
-        </ClientOnly>
+        <QuillEditor
+          ref="editor"
+          v-model:content="body"
+          content-type="html"
+          toolbar="full"
+          :modules="quillModules"
+        />
       </div>
     </div>
     <ButtonAction
@@ -45,6 +43,7 @@ definePageMeta({
   layout: 'admin',
 });
 
+const quillModules = useNuxtApp().$quillModules;
 const slug = useRoute().params.slug;
 
 const { data, refresh } = await useFetch<APIResponse<PostData>>(

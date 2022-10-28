@@ -16,11 +16,14 @@
     </div>
     <div class="input">
       <h3>Isi Artikel</h3>
-      <ClientOnly>
-        <div class="bg-white">
-          <QuillEditor v-model:content="body" content-type="html" />
-        </div>
-      </ClientOnly>
+      <div class="bg-white">
+        <QuillEditor
+          v-model:content="body"
+          content-type="html"
+          toolbar="full"
+          :modules="quillModules"
+        />
+      </div>
     </div>
     <ButtonAction
       class="primary ml-auto w-fit block mt-4 !px-8"
@@ -38,6 +41,8 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 definePageMeta({
   layout: 'admin',
 });
+
+const quillModules = useNuxtApp().$quillModules;
 
 const title = ref('');
 const cover = ref(null);
