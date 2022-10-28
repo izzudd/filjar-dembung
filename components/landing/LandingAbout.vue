@@ -6,7 +6,7 @@
         <h3 class="mb-6">D'Embung Park Pandanmulyo</h3>
         <div class="lg:hidden w-full my-12">
           <video ref="video" controls class="w-full">
-            <source src="/video/cover-low.mp4" />
+            <source src="/video/cover.mp4" />
           </video>
           <p class="mt-8">Berwisata sambil belajar? Hanya disini!</p>
         </div>

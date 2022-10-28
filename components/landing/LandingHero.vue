@@ -11,7 +11,7 @@
       poster="/img/landscape/2.jpg"
       class="w-full h-full absolute top-0 left-0 object-cover hidden lg:block"
     >
-      <source src="/video/cover-low.mp4" />
+      <source src="/video/cover.mp4" />
     </video>
     <div class="relative">
       <div class="min-h-screen flex items-center justify-center mt-12">
@@ -30,14 +30,14 @@
       </div>
       <div
         v-show="overlay"
-        class="bg-accent-black/40 fixed top-20 left-0 w-screen h-screen flex items-center justify-center"
+        class="bg-accent-black/40 fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-50"
       >
-        <div class="relative">
+        <div class="relative w-3/4 flex items-center text-center">
           <button class="top-5 left-5 absolute z-50" @click="overlay = false">
             <IconClose class="stroke-accent-black" />
           </button>
           <video ref="video" controls>
-            <source src="/video/cover-low.mp4" />
+            <source src="/video/cover.mp4" />
           </video>
         </div>
       </div>
