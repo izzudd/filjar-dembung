@@ -1,10 +1,13 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <SectionWrapper>
     <div class="lg:bg-secondary flex lg:items-center gap-16 lg:p-16">
       <div class="flex-1 text-center lg:text-left">
         <h2 class="mb-2">INFORMASI LAINNYA</h2>
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="prose mb-6" v-html="data.description"></div>
+        <div
+          class="prose mb-12 lg:mb-8 prose-li:text-left"
+          v-html="data.description"
+        ></div>
         <ButtonAction
           class="secondary"
           as-link
@@ -13,7 +16,9 @@
         >
           Hubungi Sekarang
         </ButtonAction>
-        <div class="font-semibold flex items-center justify-between mt-6">
+        <div
+          class="font-semibold flex flex-col lg:flex-row items-center justify-between mt-6"
+        >
           Atau kunjungi sosial media kami
           <SocialIcons green class="flex gap-4 h-8 justify-end" />
         </div>
