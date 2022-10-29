@@ -21,7 +21,13 @@
           <QuillEditor
             v-model:content="body"
             content-type="html"
-            toolbar="full"
+            :toolbar="[
+              [{ header: [1, 2, 3, 4, 5, 6, false] }],
+              ['bold', 'italic', 'underline'],
+              ['blockquote', 'link'],
+              [{ list: 'ordered' }, { list: 'bullet' }],
+              ['image'],
+            ]"
             :modules="quillModules"
           />
         </ClientOnly>

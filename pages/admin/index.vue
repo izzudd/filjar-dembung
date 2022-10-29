@@ -8,6 +8,7 @@
     <div class="col-span-3 flex flex-col gap-4">
       <AdminOperational />
       <AdminTestimonials />
+      <AdminInfo />
     </div>
   </div>
 </template>

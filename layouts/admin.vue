@@ -7,7 +7,7 @@
         <nav class="flex gap-4 flex-col items-center">
           <NuxtLink to="/admin">Beranda</NuxtLink>
           <NuxtLink to="/admin/analitik">Google Analytics</NuxtLink>
-          <NuxtLink to="/admin/artikel">Artikel</NuxtLink>
+          <NuxtLink to="/admin/artikel">Berita</NuxtLink>
           <NuxtLink to="/admin/testimoni">Testimoni</NuxtLink>
         </nav>
         <ButtonAction as-link class="primary text-center mt-auto" to="/"

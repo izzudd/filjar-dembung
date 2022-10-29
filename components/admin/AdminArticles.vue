@@ -1,6 +1,6 @@
 <template>
   <AdminWidgetWrapper>
-    <h2 class="mb-4">Artikel</h2>
+    <h2 class="mb-4">Berita</h2>
     <div class="flex flex-col items-end">
       <div class="flex bg-accent-white p-2 mb-4">
         <input
@@ -14,7 +14,7 @@
         </button>
       </div>
       <ButtonAction class="primary" as-link to="/admin/artikel/baru"
-        >Tambah Artikel</ButtonAction
+        >Tambah Berita</ButtonAction
       >
     </div>
     <div class="flex flex-col gap-2 mt-6">

@@ -30,7 +30,14 @@ export interface Testimonial {
   testimoni: string;
 }
 
-interface APIResponse<T> {
+export interface Info {
+  description: string;
+  linkImage: string[];
+  success: boolean;
+  statusCode: number;
+}
+
+export interface APIResponse<T> {
   data: T;
   success: boolean;
   statusCode: number;

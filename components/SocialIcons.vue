@@ -3,10 +3,10 @@
     <NuxtLink to="https://www.instagram.com/dembungpark" target="blank"
       ><img :src="`/icons/instagram${suffix}.svg`" alt="instagram"
     /></NuxtLink>
-    <!-- <NuxtLink to="#"
+    <NuxtLink to="https://www.youtube.com/channel/UCnVnauGqBfAPNxGnZyNt3SQ"
       ><img :src="`/icons/youtube${suffix}.svg`" alt="youtube"
     /></NuxtLink>
-    <NuxtLink to="#"
+    <!-- <NuxtLink to="#"
       ><img :src="`/icons/facebook${suffix}.svg`" alt="facebook"
     /></NuxtLink> -->
   </div>

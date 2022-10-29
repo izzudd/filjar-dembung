@@ -3,16 +3,8 @@
     <div class="lg:bg-secondary flex lg:items-center gap-16 lg:p-16">
       <div class="flex-1 text-center lg:text-left">
         <h2 class="mb-2">INFORMASI LAINNYA</h2>
-        <p class="text-justify mb-2">
-          Selain sebagai tempat wisata, D'Embung Park Pandanmulyo juga
-          menyediakan fasilitas yang dapat Anda gunakan untuk kegiatan lainnya,
-          seperti:
-        </p>
-        <ul class="list-disc list-inside mb-12">
-          <li>Pernikahan</li>
-          <li>Pertemuan Keluarga</li>
-          <li>Kegiatan Kunjungan, dan sebagainya...</li>
-        </ul>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="prose mb-6" v-html="data.description"></div>
         <ButtonAction
           class="secondary"
           as-link
@@ -27,15 +19,20 @@
         </div>
       </div>
       <SliderWrapper v-once class="hidden lg:block flex-1">
-        <SliderItem v-for="idx in 5" :key="idx">
-          <!-- TODO: Fetch image from API -->
-          <img
-            :src="`/img/landscape/${idx}.jpg`"
-            class="w-full object-cover"
-            alt="lorem"
-          />
+        <SliderItem v-for="img in data.linkImage" :key="img">
+          <img :src="img" class="w-full object-cover" alt="lorem" />
         </SliderItem>
       </SliderWrapper>
     </div>
   </SectionWrapper>
 </template>
+
+<script lang="ts" setup>
+import { Info } from '~~/types/content';
+
+const { data } = await useFetch<Info>(`/info`, {
+  baseURL: useRuntimeConfig().public.apiEndpoint,
+  initialCache: false,
+  server: false,
+});
+</script>
