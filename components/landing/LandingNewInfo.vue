@@ -33,6 +33,5 @@ import { Info } from '~~/types/content';
 const { data } = await useFetch<Info>(`/info`, {
   baseURL: useRuntimeConfig().public.apiEndpoint,
   initialCache: false,
-  server: false,
 });
 </script>

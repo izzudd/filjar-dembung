@@ -60,10 +60,6 @@ function selectFile(event) {
   cover.value = event.target.files[0] || null;
 }
 
-function logBody() {
-  window.console.log(body.value);
-}
-
 async function submit() {
   const confirmed = window.confirm('Anda yakin akan mengunggah artikel ini?');
   if (!confirmed) return;

@@ -67,7 +67,6 @@ const { data, refresh } = await useFetch<Info>(`/info`, {
 
 onMounted(async () => {
   await refresh();
-  window.console.log(data.value);
   body.value = data.value.description;
   imgs.value = data.value.linkImage;
   editor.value.setContents(body.value, 'api');
